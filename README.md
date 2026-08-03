@@ -182,3 +182,12 @@ flowchart LR
 
     class OA1,OA2,OA3,EI1,EI2,EI3,EE1,EE2,EE3,PG1,PG2,PG3,HA1,HA2,HA3,HA4,OO1,OO2,OO3,OO4,CS1,CS2,CS3,IW1,IW2,IW3,IW4,RA1,RA2,RA3,AI1,AI2,AI3,AI4,AM1,AM2,AM3,AM4,TT1,TT2,TT3,TT4,SC1,SC2,SC3,LM1,LM2,LM3,AP1,AP2,AP3,AP4,LF1,LF2,LF3,LF4,PP1,PP2,PP3,PP4,CB1,CB2,CB3,BE1,BE2,BE3 layer3;
 ```
+# Usecase Diagram for CoreHR
+## Organization & Access
+![alt text](<docs/images/Organization & Access.png>)
+## Employee Infomation
+![alt text](<docs/images/Employee Infomation.png>)
+## Employee Experience 
+![alt text](<docs/images/Employee Experience.png>)
+## Performance & Goal Management
+![alt text](<docs/images/Performance & Goal Management.png>)
