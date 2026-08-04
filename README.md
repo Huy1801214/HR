@@ -315,96 +315,142 @@ flowchart LR
 ![alt text](docs/usecase/UC-REC-08_Recover-Employee-Access-and-Equipment.png)
 
 # UC-GOV-01 — Authenticate Users with 2FA and SSO
+![alt text](docs/usecase/UC-GOV-01_Authenticate-Users-with-2FA-and-SSO.png)
 
 # UC-GOV-02 — Manage Role-Based Access Control
+![alt text](docs/usecase/UC-GOV-02_Manage-Role-Based-Access-Control.png)
 
 # UC-GOV-03 — Manage Privacy and Audit Logs
+![alt text](docs/usecase/UC-GOV-03_Manage-Privacy-and-Audit-Logs.png)
 
 # UC-GOV-04 — Manage Public APIs and Webhooks
+![alt text](docs/usecase/UC-GOV-04_Manage-Public-APIs-and-Webhooks.png)
 
 # UC-GOV-05 — Integrate Payroll and Accounting Systems
+![alt text](docs/usecase/UC-GOV-05_Integrate-Payroll-and-Accounting-Systems.png)
 
 # UC-GOV-06 — Manage Multi-Level Approval Workflows
+![alt text](docs/usecase/UC-GOV-06_Manage-Multi-Level-Approval-Workflows.png)
 
 # UC-GOV-07 — Manage Dashboards and Notifications
+![alt text](docs/usecase/UC-GOV-07_Manage-Dashboards-and-Notifications.png)
 
 # UC-AI-01 — Generate HR and Recruitment Reports
+![alt text](docs/usecase/UC-AI-01_Generate-HR-and-Recruitment-Reports.png)
 
 # UC-AI-02 — Generate Time, Attendance and Cost Reports
+![alt text](docs/usecase/UC-AI-02_Generate-Time-Attendance-and-Cost-Reports.png)
 
 # UC-AI-03 — Create Custom Dashboards and Export Data
+![alt text](docs/usecase/UC-AI-03_Create-Custom-Dashboards-and-Export-Data.png)
 
 # UC-AI-04 — Ask Natural-Language HR Questions
+![alt text](docs/usecase/UC-AI-04_Ask-Natural-Language-HR-Questions.png)
 
 # UC-AI-05 — Search HR Policies and Documents
+![alt text](docs/usecase/UC-AI-05_Search-HR-Policies-and-Documents.png)
 
 # UC-AI-06 — Detect Workforce Trends and Anomalies
+![alt text](docs/usecase/UC-AI-06_Detect-Workforce-Trends-and-Anomalies.png)
 
 # UC-AI-07 — Generate Data-Driven Recommendations
+![alt text](docs/usecase/UC-AI-07_Generate-Data-Driven-Recommendations.png)
 
 # UC-TA-01 — Clock In and Clock Out
+![alt text](docs/usecase/UC-TA-01_Clock-In-and-Clock-Out.png)
 
 # UC-TA-02 — Detect Late Arrivals and Absences
+![alt text](docs/usecase/UC-TA-02_Detect-Late-Arrivals-and-Absences.png)
 
 # UC-TA-03 — Manage Paid and Unpaid Breaks
+![alt text](docs/usecase/UC-TA-03_Manage-Paid-and-Unpaid-Breaks.png)
 
 # UC-TA-04 — Calculate and Approve Overtime
+![alt text](docs/usecase/UC-TA-04_Calculate-and-Approve-Overtime.png)
 
 # UC-TA-05 — Start and Stop Work Timers
+![alt text](docs/usecase/UC-TA-05_Start-and-Stop-Work-Timers.png)
 
 # UC-TA-06 — Track Time by Project and Task
+![alt text](docs/usecase/UC-TA-06_Track-Time-by-Project-and-Task.png)
 
 # UC-TA-07 — Manage Manual and Offline Time
+![alt text](docs/usecase/UC-TA-07_Manage-Manual-and-Offline-Time.png)
 
 # UC-TA-08 — Manage Billable and Non-Billable Time
+![alt text](docs/usecase/UC-TA-08_Manage-Billable-and-Non-Billable-Time.png)
 
 # UC-TA-09 — Manage Work Shifts and Team Assignments
+![alt text](docs/usecase/UC-TA-09_Manage-Work-Shifts-and-Team-Assignments.png)
 
 # UC-TA-10 — Manage Recurring Schedules
+![alt text](docs/usecase/UC-TA-10_Manage-Recurring-Schedules.png)
 
 # UC-TA-11 — Detect Schedule Conflicts
+![alt text](docs/usecase/UC-TA-11_Detect-Schedule-Conflicts.png)
 
 # UC-TA-12 — Manage Time-Off Policies and Leave Balances
+![alt text](docs/usecase/UC-TA-12_Manage-Time-Off-Policies-and-Leave-Balances.png)
 
 # UC-TA-13 — Manage Leave Requests and Approvals
+![alt text](docs/usecase/UC-TA-13_Manage-Leave-Requests-and-Approvals.png)
 
 # UC-TA-14 — Manage Holiday Calendars
+![alt text](docs/usecase/UC-TA-14_Manage-Holiday-Calendars.png)
 
 # UC-WT-01 — Track Keyboard and Mouse Activity
+![alt text](docs/usecase/UC-WT-01_Track-Keyboard-and-Mouse-Activity.png)
 
 # UC-WT-02 — Capture Employee Screenshots
+![alt text](docs/usecase/UC-WT-02_Capture-Employee-Screenshots.png)
 
 # UC-WT-03 — Track Application and Website Usage
+![alt text](docs/usecase/UC-WT-03_Track-Application-and-Website-Usage.png)
 
 # UC-WT-04 — Analyze Idle Time and Focus
+![alt text](docs/usecase/UC-WT-04_Analyze-Idle-Time-and-Focus.png)
 
 # UC-WT-05 — Track Real-Time GPS Location
+![alt text](docs/usecase/UC-WT-05_Track-Real-Time-GPS-Location.png)
 
 # UC-WT-06 — View Location and Route History
+![alt text](docs/usecase/UC-WT-06_View-Location-and-Route-History.png)
 
 # UC-WT-07 — Manage Geofence Clock-In
+![alt text](docs/usecase/UC-WT-07_Manage-Geofence-Clock-In.png)
 
 # UC-WT-08 — Track Field Employee Attendance
+![alt text](docs/usecase/UC-WT-08_Track-Field-Employee-Attendance.png)
 
 # UC-PB-01 — Manage Pay Rates and Salary Types
+![alt text](docs/usecase/UC-PB-01_Manage-Pay-Rates-and-Salary-Types.png)
 
 # UC-PB-02 — Calculate Payroll from Approved Timesheets
+![alt text](docs/usecase/UC-PB-02_Calculate-Payroll-from-Approved-Timesheets.png)
 
 # UC-PB-03 — Process Payroll Tax and Direct Deposit
+![alt text](docs/usecase/UC-PB-03_Process-Payroll-Tax-and-Direct-Deposit.png)
 
 # UC-PB-04 — View Payroll History
+![alt text](docs/usecase/UC-PB-04_View-Payroll-History.png)
 
 # UC-PB-05 — Manage Salary Bands and Salary Reviews
+![alt text](docs/usecase/UC-PB-05_Manage-Salary-Bands-and-Salary-Reviews.png)
 
 # UC-PB-06 — Manage Benefit Plan Eligibility
+![alt text](docs/usecase/UC-PB-06_Manage-Benefit-Plan-Eligibility.png)
 
 # UC-PB-07 — Manage Open and New-Hire Enrollment
+![alt text](docs/usecase/UC-PB-07_Manage-Open-and-New-Hire-Enrollment.png)
 
 # UC-PB-08 — Manage Billable Hours and Rates
+![alt text](docs/usecase/UC-PB-08_Manage-Billable-Hours-and-Rates.png)
 
 # UC-PB-09 — Generate and Deliver Invoices
+![alt text](docs/usecase/UC-PB-09_Generate-and-Deliver-Invoices.png)
 
 # UC-PB-10 — Manage Expense Reimbursement and Invoicing
+![alt text](docs/usecase/UC-PB-10_Manage-Expense-Reimbursement-and-Invoicing.png)
 
 
 
