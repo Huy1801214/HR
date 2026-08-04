@@ -182,6 +182,91 @@ flowchart LR
 
     class OA1,OA2,OA3,EI1,EI2,EI3,EE1,EE2,EE3,PG1,PG2,PG3,HA1,HA2,HA3,HA4,OO1,OO2,OO3,OO4,CS1,CS2,CS3,IW1,IW2,IW3,IW4,RA1,RA2,RA3,AI1,AI2,AI3,AI4,AM1,AM2,AM3,AM4,TT1,TT2,TT3,TT4,SC1,SC2,SC3,LM1,LM2,LM3,AP1,AP2,AP3,AP4,LF1,LF2,LF3,LF4,PP1,PP2,PP3,PP4,CB1,CB2,CB3,BE1,BE2,BE3 layer3;
 ```
+
+# Mindmap for Core HR 
+```mermaid
+flowchart LR
+
+    %% CENTER
+    CORE["Core HR"]
+
+    %% LEFT SIDE — 2 SUB-MODULES
+    ORGANIZATION["Organization & Access"] --- CORE
+    EMPLOYEE_INFO["Employee Information"] --- CORE
+
+    OA1["Organization Structure"] --- ORGANIZATION
+    OA2["User Account Management"] --- ORGANIZATION
+    OA3["Role & Permission Management"] --- ORGANIZATION
+
+    EI1["Employee Records & Directory"] --- EMPLOYEE_INFO
+    EI2["Employee Documents"] --- EMPLOYEE_INFO
+    EI3["Data Change History"] --- EMPLOYEE_INFO
+
+    %% RIGHT SIDE — 2 SUB-MODULES
+    CORE --- EXPERIENCE["Employee Experience"]
+    CORE --- PERFORMANCE["Performance & Goals"]
+
+    EXPERIENCE --- EE1["Engagement & Wellbeing Surveys"]
+    EXPERIENCE --- EE2["Recognition & Rewards"]
+    EXPERIENCE --- EE3["Internal Announcements"]
+
+    PERFORMANCE --- PG1["Goal Tracking & 1-on-1s"]
+    PERFORMANCE --- PG2["Self & Manager Assessments"]
+    PERFORMANCE --- PG3["360 Feedback & Performance Reviews"]
+
+    %% STYLES
+    classDef center fill:#0f172a,stroke:#3b82f6,stroke-width:4px,color:#ffffff,font-weight:bold;
+    classDef layer1 fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e293b,font-weight:bold;
+    classDef layer2 fill:#ffffff,stroke:#94a3b8,stroke-width:1px,color:#334155;
+
+    class CORE center;
+    class ORGANIZATION,EMPLOYEE_INFO,EXPERIENCE,PERFORMANCE layer1;
+    class OA1,OA2,OA3,EI1,EI2,EI3,EE1,EE2,EE3,PG1,PG2,PG3 layer2;
+```
+
+# Mindmap for Time & Attendance 
+```mermaid
+flowchart LR
+
+    %% CENTER
+    TIME["Time & Attendance"]
+
+    %% LEFT SIDE — 2 SUB-MODULES
+    ATTENDANCE["Attendance Management"] --- TIME
+    TIME_TRACKING["Time Tracking"] --- TIME
+
+    AM1["Clock In & Clock Out"] --- ATTENDANCE
+    AM2["Late & Absence Detection"] --- ATTENDANCE
+    AM3["Paid & Unpaid Breaks"] --- ATTENDANCE
+    AM4["Overtime Calculation & Approval"] --- ATTENDANCE
+
+    TT1["Start & Stop Timers"] --- TIME_TRACKING
+    TT2["Project & Task Tracking"] --- TIME_TRACKING
+    TT3["Manual & Offline Time"] --- TIME_TRACKING
+    TT4["Billable & Non-Billable Rules"] --- TIME_TRACKING
+
+    %% RIGHT SIDE — 2 SUB-MODULES
+    TIME --- SCHEDULING["Scheduling"]
+    TIME --- LEAVE["Leave Management"]
+
+    SCHEDULING --- SC1["Work Shifts & Team Assignment"]
+    SCHEDULING --- SC2["Recurring Schedules"]
+    SCHEDULING --- SC3["Schedule Conflict Detection"]
+
+    LEAVE --- LM1["Time-Off Policies & Balances"]
+    LEAVE --- LM2["Leave Requests & Approvals"]
+    LEAVE --- LM3["Holiday Calendar"]
+
+    %% STYLES
+    classDef center fill:#0f172a,stroke:#10b981,stroke-width:4px,color:#ffffff,font-weight:bold;
+    classDef layer1 fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#064e3b,font-weight:bold;
+    classDef layer2 fill:#ffffff,stroke:#94a3b8,stroke-width:1px,color:#334155;
+
+    class TIME center;
+    class ATTENDANCE,TIME_TRACKING,SCHEDULING,LEAVE layer1;
+    class AM1,AM2,AM3,AM4,TT1,TT2,TT3,TT4,SC1,SC2,SC3,LM1,LM2,LM3 layer2;
+```
+
 # Usecase Diagram for CoreHR
 ## Organization & Access
 ![alt text](<docs/images/Organization & Access.png>)
