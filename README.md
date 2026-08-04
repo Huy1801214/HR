@@ -495,62 +495,62 @@ flowchart LR
 # SW-CORE-02 — Employee Account Provisioning
 ![alt text](docs/swimlane/SW-CORE-02.png)
 # SW-CORE-03 — Employee Document E-Signature
-
+![alt text](docs/swimlane/SW-CORE-03.png)
 # SW-CORE-04 — Recognition and Reward Approval
-
+![alt text](docs/swimlane/SW-CORE-04.png)
 # SW-CORE-05 — Performance Review Cycle
-
+![alt text](docs/swimlane/05.png)
 # SW-REC-01 — Job Opening Approval and Publication
-
+![alt text](docs/swimlane/rec01.png)
 # SW-REC-02 — Candidate Application and Screening
-
+![alt text](docs/swimlane/rec02.png)
 # SW-REC-03 — Interview Scheduling and Completion
-
+![alt text](docs/swimlane/rec03.png)
 # SW-REC-04 — Candidate Evaluation and Hiring Decision
-
+![alt text](docs/swimlane/rec04.png)
 # SW-REC-05 — Job Offer Approval and Acceptance
-
+![alt text](docs/swimlane/rec05.png)
 # SW-REC-06 — New-Hire Onboarding
-
+![alt text](docs/swimlane/rec06.png)
 # SW-REC-07 — Employee Offboarding
-
+![alt text](docs/swimlane/rec07.png)
 # SW-GOV-01 — User Authentication with SSO and 2FA
-
+![alt text](docs/swimlane/gov01.png)
 # SW-GOV-02 — Multi-Level Approval Workflow
-
+![alt text](docs/swimlane/gov02.png)
 # SW-GOV-03 — External System Data Synchronization
-
+![alt text](docs/swimlane/gov03.png)
 # SW-AI-01 — Natural-Language HR Question
-
+![alt text](docs/swimlane/al01.png)
 # SW-AI-02 — Workforce Anomaly Review
-
+![alt text](docs/swimlane/al02.png)
 # SW-TA-01 — Attendance Correction
-
+![alt text](docs/swimlane/ta01.png)
 # SW-TA-02 — Overtime Approval
-
+![alt text](docs/swimlane/ta02.png)
 # SW-TA-03 — Manual and Offline Time Approval
-
+![alt text](docs/swimlane/ta03.png)
 # SW-TA-04 — Shift Assignment and Change
-
+![alt text](docs/swimlane/ta04.png)
 # SW-TA-05 — Schedule Conflict Resolution
-
+![alt text](docs/swimlane/ta05.png)
 # SW-TA-06 — Leave Request Approval
-
+![alt text](docs/swimlane/ta06.png)
 # SW-WT-01 — Authorized Activity Tracking Session
-
+![alt text](docs/swimlane/wt01.png)
 # SW-WT-02 — Field Attendance and Geofence Validation
-
+![alt text](docs/swimlane/wt02.png)
 # SW-PB-01 — Payroll Calculation
-
+![alt text](docs/swimlane/pb01.png)
 # SW-PB-02 — Tax and Direct Deposit Processing
-
+![alt text](docs/swimlane/pb02.png)
 # SW-PB-03 — Salary Review and Adjustment
-
+![alt text](docs/swimlane/pb03.png)
 # SW-PB-04 — Benefit Enrollment
-
+![alt text](docs/swimlane/pb04.png)
 # SW-PB-05 — Invoice Generation and Delivery
-
+![alt text](docs/swimlane/pb05.png)
 # SW-PB-06 — Expense Reimbursement
-
+![alt text](docs/swimlane/pb06.png)
 
 
