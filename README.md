@@ -335,47 +335,68 @@ flowchart LR
 # UC-GOV-07 — Manage Dashboards and Notifications
 ![alt text](docs/usecase/UC-GOV-07_Manage-Dashboards-and-Notifications.png)
 
-# UC-AI-01
+# UC-AI-01 — Generate HR and Recruitment Reports
+![alt text](docs/usecase/UC-AI-01_Generate-HR-and-Recruitment-Reports.png)
 
-# UC-AI-02
+# UC-AI-02 — Generate Time, Attendance and Cost Reports
+![alt text](docs/usecase/UC-AI-02_Generate-Time-Attendance-and-Cost-Reports.png)
 
-# UC-AI-03
+# UC-AI-03 — Create Custom Dashboards and Export Data
+![alt text](docs/usecase/UC-AI-03_Create-Custom-Dashboards-and-Export-Data.png)
 
-# UC-AI-04
+# UC-AI-04 — Ask Natural-Language HR Questions
+![alt text](docs/usecase/UC-AI-04_Ask-Natural-Language-HR-Questions.png)
 
-# UC-AI-05
+# UC-AI-05 — Search HR Policies and Documents
+![alt text](docs/usecase/UC-AI-05_Search-HR-Policies-and-Documents.png)
 
-# UC-AI-06
+# UC-AI-06 — Detect Workforce Trends and Anomalies
+![alt text](docs/usecase/UC-AI-06_Detect-Workforce-Trends-and-Anomalies.png)
 
-# UC-AI-07
+# UC-AI-07 — Generate Data-Driven Recommendations
+![alt text](docs/usecase/UC-AI-07_Generate-Data-Driven-Recommendations.png)
 
-# UC-TA-01
+# UC-TA-01 — Clock In and Clock Out
+![alt text](docs/usecase/UC-TA-01_Clock-In-and-Clock-Out.png)
 
-# UC-TA-02
+# UC-TA-02 — Detect Late Arrivals and Absences
+![alt text](docs/usecase/UC-TA-02_Detect-Late-Arrivals-and-Absences.png)
 
-# UC-TA-03
+# UC-TA-03 — Manage Paid and Unpaid Breaks
+![alt text](docs/usecase/UC-TA-03_Manage-Paid-and-Unpaid-Breaks.png)
 
-# UC-TA-04
+# UC-TA-04 — Calculate and Approve Overtime
+![alt text](docs/usecase/UC-TA-04_Calculate-and-Approve-Overtime.png)
 
-# UC-TA-05
+# UC-TA-05 — Start and Stop Work Timers
+![alt text](docs/usecase/UC-TA-05_Start-and-Stop-Work-Timers.png)
 
-# UC-TA-06
+# UC-TA-06 — Track Time by Project and Task
+![alt text](docs/usecase/UC-TA-06_Track-Time-by-Project-and-Task.png)
 
-# UC-TA-07
+# UC-TA-07 — Manage Manual and Offline Time
+![alt text](docs/usecase/UC-TA-07_Manage-Manual-and-Offline-Time.png)
 
-# UC-TA-08
+# UC-TA-08 — Manage Billable and Non-Billable Time
+![alt text](docs/usecase/UC-TA-08_Manage-Billable-and-Non-Billable-Time.png)
 
-# UC-TA-09
+# UC-TA-09 — Manage Work Shifts and Team Assignments
+![alt text](docs/usecase/UC-TA-09_Manage-Work-Shifts-and-Team-Assignments.png)
 
-# UC-TA-10
+# UC-TA-10 — Manage Recurring Schedules
+![alt text](docs/usecase/UC-TA-10_Manage-Recurring-Schedules.png)
 
-# UC-TA-11
+# UC-TA-11 — Detect Schedule Conflicts
+![alt text](docs/usecase/UC-TA-11_Detect-Schedule-Conflicts.png)
 
-# UC-TA-12
+# UC-TA-12 — Manage Time-Off Policies and Leave Balances
+![alt text](docs/usecase/UC-TA-12_Manage-Time-Off-Policies-and-Leave-Balances.png)
 
-# UC-TA-13
+# UC-TA-13 — Manage Leave Requests and Approvals
+![alt text](docs/usecase/UC-TA-13_Manage-Leave-Requests-and-Approvals.png)
 
-# UC-TA-14
+# UC-TA-14 — Manage Holiday Calendars
+![alt text](docs/usecase/UC-TA-14_Manage-Holiday-Calendars.png)
 
 # UC-WT-01
 
