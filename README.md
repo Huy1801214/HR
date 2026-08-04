@@ -398,41 +398,59 @@ flowchart LR
 # UC-TA-14 — Manage Holiday Calendars
 ![alt text](docs/usecase/UC-TA-14_Manage-Holiday-Calendars.png)
 
-# UC-WT-01
+# UC-WT-01 — Track Keyboard and Mouse Activity
+![alt text](docs/usecase/UC-WT-01_Track-Keyboard-and-Mouse-Activity.png)
 
-# UC-WT-02
+# UC-WT-02 — Capture Employee Screenshots
+![alt text](docs/usecase/UC-WT-02_Capture-Employee-Screenshots.png)
 
-# UC-WT-03
+# UC-WT-03 — Track Application and Website Usage
+![alt text](docs/usecase/UC-WT-03_Track-Application-and-Website-Usage.png)
 
-# UC-WT-04
+# UC-WT-04 — Analyze Idle Time and Focus
+![alt text](docs/usecase/UC-WT-04_Analyze-Idle-Time-and-Focus.png)
 
-# UC-WT-05
+# UC-WT-05 — Track Real-Time GPS Location
+![alt text](docs/usecase/UC-WT-05_Track-Real-Time-GPS-Location.png)
 
-# UC-WT-06
+# UC-WT-06 — View Location and Route History
+![alt text](docs/usecase/UC-WT-06_View-Location-and-Route-History.png)
 
-# UC-WT-07
+# UC-WT-07 — Manage Geofence Clock-In
+![alt text](docs/usecase/UC-WT-07_Manage-Geofence-Clock-In.png)
 
-# UC-WT-08
+# UC-WT-08 — Track Field Employee Attendance
+![alt text](docs/usecase/UC-WT-08_Track-Field-Employee-Attendance.png)
 
-# UC-PB-01
+# UC-PB-01 — Manage Pay Rates and Salary Types
+![alt text](docs/usecase/UC-PB-01_Manage-Pay-Rates-and-Salary-Types.png)
 
-# UC-PB-02
+# UC-PB-02 — Calculate Payroll from Approved Timesheets
+![alt text](docs/usecase/UC-PB-02_Calculate-Payroll-from-Approved-Timesheets.png)
 
-# UC-PB-03
+# UC-PB-03 — Process Payroll Tax and Direct Deposit
+![alt text](docs/usecase/UC-PB-03_Process-Payroll-Tax-and-Direct-Deposit.png)
 
-# UC-PB-04
+# UC-PB-04 — View Payroll History
+![alt text](docs/usecase/UC-PB-04_View-Payroll-History.png)
 
-# UC-PB-05
+# UC-PB-05 — Manage Salary Bands and Salary Reviews
+![alt text](docs/usecase/UC-PB-05_Manage-Salary-Bands-and-Salary-Reviews.png)
 
-# UC-PB-06
+# UC-PB-06 — Manage Benefit Plan Eligibility
+![alt text](docs/usecase/UC-PB-06_Manage-Benefit-Plan-Eligibility.png)
 
-# UC-PB-07
+# UC-PB-07 — Manage Open and New-Hire Enrollment
+![alt text](docs/usecase/UC-PB-07_Manage-Open-and-New-Hire-Enrollment.png)
 
-# UC-PB-08
+# UC-PB-08 — Manage Billable Hours and Rates
+![alt text](docs/usecase/UC-PB-08_Manage-Billable-Hours-and-Rates.png)
 
-# UC-PB-09
+# UC-PB-09 — Generate and Deliver Invoices
+![alt text](docs/usecase/UC-PB-09_Generate-and-Deliver-Invoices.png)
 
-# UC-PB-10
+# UC-PB-10 — Manage Expense Reimbursement and Invoicing
+![alt text](docs/usecase/UC-PB-10_Manage-Expense-Reimbursement-and-Invoicing.png)
 
 
 
