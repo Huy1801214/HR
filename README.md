@@ -254,6 +254,8 @@ flowchart LR
 | 65 | UC-PB-09 | Payroll & Benefits | Client Billing & Expenses | Generate and Deliver Invoices | Payroll / Finance Staff; External System | Generate invoices from billable time and deliver them to clients. |
 | 66 | UC-PB-10 | Payroll & Benefits | Client Billing & Expenses | Manage Expense Reimbursement and Invoicing | Employee; Manager; Payroll / Finance Staff | Submit expenses, approve reimbursements, and include eligible expenses in client invoices. |
 
+# Actor Relationships 
+![alt text](docs/usecase/HR.png)
 # UC-CORE-01 — Manage Organization Structure
 ![alt text](docs/usecase/UC-CORE-01_Manage-Organization-Structure.png)
 
@@ -452,6 +454,103 @@ flowchart LR
 # UC-PB-10 — Manage Expense Reimbursement and Invoicing
 ![alt text](docs/usecase/UC-PB-10_Manage-Expense-Reimbursement-and-Invoicing.png)
 
+# Swimlane Process Catalogue
+
+| No. | Swimlane ID | Module | Process Name | Related Use Cases | Lanes / Participants | Process Summary | Priority |
+|---:|---|---|---|---|---|---|---|
+| 1 | SW-CORE-01 | Core HR | Employee Data Change Approval | UC-CORE-04; UC-CORE-06 | Employee; Manager; HR Staff; HR Platform; External System | Employee submits a data-change request; Manager or HR Staff reviews it; the system updates the employee record, records the audit trail, and sends the result. | Must-have |
+| 2 | SW-CORE-02 | Core HR | Employee Account Provisioning | UC-CORE-02; UC-CORE-03 | HR Staff; System Administrator; HR Platform; External System | HR Staff requests an account; System Administrator creates it, assigns roles and permissions, activates access, and triggers account notification. | Should-have |
+| 3 | SW-CORE-03 | Core HR | Employee Document E-Signature | UC-CORE-05 | HR Staff; Employee; HR Platform; External System | HR Staff uploads a document and requests a signature; Employee signs; the external signature service verifies it; the platform updates document status. | Must-have |
+| 4 | SW-CORE-04 | Core HR | Recognition and Reward Approval | UC-CORE-08 | Employee; Manager; HR Staff; HR Platform; External System | Employee or Manager submits recognition or a reward nomination; HR Staff reviews and approves or rejects it; the platform records and notifies the result. | Should-have |
+| 5 | SW-CORE-05 | Core HR | Performance Review Cycle | UC-CORE-10; UC-CORE-11; UC-CORE-12 | Employee; Manager; HR Staff; Review Participant / External System; HR Platform | HR Staff configures the review cycle; employees and managers complete assessments; reviewers provide feedback; HR Staff closes the cycle and publishes results. | Must-have |
+| 6 | SW-REC-01 | Recruitment & Onboarding | Job Opening Approval and Publication | UC-REC-01 | Manager; Recruiter; HR Staff; HR Platform; External System | Manager submits a hiring request; Recruiter prepares the job opening; HR Staff approves it; the platform publishes it internally and externally. | Must-have |
+| 7 | SW-REC-02 | Recruitment & Onboarding | Candidate Application and Screening | UC-REC-02 | Candidate / New Hire; Recruiter; Manager; HR Platform; External System | Candidate applies; Recruiter screens the application; Manager reviews the candidate; the platform advances or rejects the candidate. | Must-have |
+| 8 | SW-REC-03 | Recruitment & Onboarding | Interview Scheduling and Completion | UC-REC-02 | Candidate / New Hire; Recruiter; Manager; HR Platform; External System | Recruiter proposes an interview; Candidate confirms or requests rescheduling; Manager attends; the platform records completion and updates the candidate stage. | Should-have |
+| 9 | SW-REC-04 | Recruitment & Onboarding | Candidate Evaluation and Hiring Decision | UC-REC-03 | Recruiter; Manager; HR Staff; HR Platform | Interview feedback is submitted; Recruiter compares candidates; Manager recommends a decision; HR Staff or the platform finalizes the hiring decision. | Should-have |
+| 10 | SW-REC-05 | Recruitment & Onboarding | Job Offer Approval and Acceptance | UC-REC-04; UC-REC-07 | Recruiter; Manager; HR Staff; Candidate / New Hire; HR Platform; External System | Recruiter creates the offer; Manager reviews terms; HR Staff approves; Candidate accepts or rejects and signs; the platform updates offer status. | Must-have |
+| 11 | SW-REC-06 | Recruitment & Onboarding | New-Hire Onboarding | UC-REC-05; UC-REC-06 | Candidate / New Hire; Manager; HR Staff; System Administrator; HR Platform; External System | New Hire submits required information; HR Staff validates it and assigns a checklist; System Administrator provisions access; Manager assigns team tasks; onboarding is completed. | Must-have |
+| 12 | SW-REC-07 | Recruitment & Onboarding | Employee Offboarding | UC-REC-08 | Manager; Employee; HR Staff; System Administrator; HR Platform | Manager initiates offboarding; HR Staff creates the checklist; Employee returns equipment; System Administrator revokes access; the employee record is closed. | Must-have |
+| 13 | SW-GOV-01 | Platform & Governance | User Authentication with SSO and 2FA | UC-GOV-01 | User; HR Platform; External System; System Administrator | User signs in; the platform redirects to the identity provider; identity and second factor are verified; a token is issued and access is granted. | Should-have |
+| 14 | SW-GOV-02 | Platform & Governance | Multi-Level Approval Workflow | UC-GOV-06 | Requester; Manager; HR Staff; HR Platform; External System | Requester submits a request; one or more approval levels review it; the final decision updates status and triggers notification. | Must-have |
+| 15 | SW-GOV-03 | Platform & Governance | External System Data Synchronization | UC-GOV-04; UC-GOV-05 | Payroll / Finance Staff; System Administrator; HR Platform; External System | A user initiates synchronization; the platform validates and maps data; the external system processes it and returns status; failures are retried or corrected. | Should-have |
+| 16 | SW-AI-01 | Analytics & AI | Natural-Language HR Question | UC-AI-04; UC-AI-05 | Employee / Manager / HR Staff; HR Platform; External System | User asks a question; the platform checks authorization, retrieves relevant data or documents, generates an answer, and returns supporting sources. | Should-have |
+| 17 | SW-AI-02 | Analytics & AI | Workforce Anomaly Review | UC-AI-06; UC-AI-07 | External System; HR Platform; HR Staff; Manager | The system detects a workforce anomaly, generates a recommendation, and routes it to HR Staff and Manager for review and action. | Should-have |
+| 18 | SW-TA-01 | Time & Attendance | Attendance Correction | UC-TA-01; UC-TA-02 | Employee; Manager; HR Staff; HR Platform; External System | A clock event is recorded; the platform detects an abnormality; Employee requests correction; Manager and HR Staff review; the record is updated. | Should-have |
+| 19 | SW-TA-02 | Time & Attendance | Overtime Approval | UC-TA-04 | Employee; Manager; HR Staff; Payroll / Finance Staff; HR Platform | Employee submits overtime; Manager reviews; HR Staff handles exceptions; approved hours are sent to payroll. | Must-have |
+| 20 | SW-TA-03 | Time & Attendance | Manual and Offline Time Approval | UC-TA-07 | Employee; Manager; HR Staff; HR Platform | Employee records manual or offline time; the platform synchronizes it; Manager approves or rejects; HR Staff handles corrections. | Should-have |
+| 21 | SW-TA-04 | Time & Attendance | Shift Assignment and Change | UC-TA-09; UC-TA-10 | Manager; Employee; HR Staff; HR Platform; External System | Manager creates and assigns a shift; the platform checks rules; Employee confirms or requests a change; the schedule is updated and notification is sent. | Should-have |
+| 22 | SW-TA-05 | Time & Attendance | Schedule Conflict Resolution | UC-TA-11 | Manager; HR Staff; HR Platform | The platform detects overlap, leave conflict, staffing gap, or excessive workload; Manager and HR Staff review and correct the schedule. | Should-have |
+| 23 | SW-TA-06 | Time & Attendance | Leave Request Approval | UC-TA-12; UC-TA-13 | Employee; Manager; HR Staff; HR Platform; External System | Employee submits leave; the platform validates dates and balance; Manager reviews staffing; HR Staff handles exceptions; the decision updates balance and triggers notification. | Must-have |
+| 24 | SW-WT-01 | Workforce Tracking | Authorized Activity Tracking Session | UC-WT-01; UC-WT-02; UC-WT-03; UC-WT-04 | Employee; External System; HR Platform; Manager; HR Staff | Employee starts an authorized session; the tracking agent collects activity, screenshots, and app usage; the platform calculates metrics; Manager and HR Staff review permitted results. | Should-have |
+| 25 | SW-WT-02 | Workforce Tracking | Field Attendance and Geofence Validation | UC-WT-05; UC-WT-06; UC-WT-07; UC-WT-08 | Employee; External System; HR Platform; Manager; HR Staff | Employee attempts field clock-in; device captures location; the platform validates the geofence; attendance is accepted or rejected; exceptions are reviewed. | Must-have |
+| 26 | SW-PB-01 | Payroll & Benefits | Payroll Calculation | UC-PB-01; UC-PB-02 | Manager; Payroll / Finance Staff; HR Staff; HR Platform; External System | Manager confirms timesheets; Payroll Staff imports approved hours; the platform applies rates, overtime, and leave; payroll is reviewed and finalized. | Must-have |
+| 27 | SW-PB-02 | Payroll & Benefits | Tax and Direct Deposit Processing | UC-PB-03 | Payroll / Finance Staff; HR Platform; External System; Employee | Payroll Staff initiates payment; the platform calculates taxes and deductions; tax and banking services validate and process payment; Employee receives the result. | Must-have |
+| 28 | SW-PB-03 | Payroll & Benefits | Salary Review and Adjustment | UC-PB-05 | Manager; HR Staff; Payroll / Finance Staff; HR Platform | Manager submits a salary recommendation; HR Staff reviews the salary band and approves or rejects the adjustment; payroll applies the new salary. | Should-have |
+| 29 | SW-PB-04 | Payroll & Benefits | Benefit Enrollment | UC-PB-06; UC-PB-07 | Employee / Candidate / New Hire; HR Staff; Payroll / Finance Staff; HR Platform; External System | The platform determines eligible plans; Employee or New Hire enrolls; HR Staff reviews; Payroll applies deductions; the provider receives enrollment data. | Must-have |
+| 30 | SW-PB-05 | Payroll & Benefits | Invoice Generation and Delivery | UC-PB-08; UC-PB-09 | Employee; Manager; Payroll / Finance Staff; HR Platform; External System | Employee records billable time; Manager approves hours; Finance calculates and approves the invoice; the external system delivers it and returns payment status. | Should-have |
+| 31 | SW-PB-06 | Payroll & Benefits | Expense Reimbursement | UC-PB-10 | Employee; Manager; Payroll / Finance Staff; HR Platform; External System | Employee submits an expense and receipt; Manager reviews; Finance approves or rejects and processes reimbursement; client-billable expenses may be invoiced. | Must-have |
+
+# SW-CORE-01 — Employee Data Change Approval
+![alt text](docs/swimlane/SW-CORE-01.png)
+# SW-CORE-02 — Employee Account Provisioning
+![alt text](docs/swimlane/SW-CORE-02.png)
+# SW-CORE-03 — Employee Document E-Signature
+
+# SW-CORE-04 — Recognition and Reward Approval
+
+# SW-CORE-05 — Performance Review Cycle
+
+# SW-REC-01 — Job Opening Approval and Publication
+
+# SW-REC-02 — Candidate Application and Screening
+
+# SW-REC-03 — Interview Scheduling and Completion
+
+# SW-REC-04 — Candidate Evaluation and Hiring Decision
+
+# SW-REC-05 — Job Offer Approval and Acceptance
+
+# SW-REC-06 — New-Hire Onboarding
+
+# SW-REC-07 — Employee Offboarding
+
+# SW-GOV-01 — User Authentication with SSO and 2FA
+
+# SW-GOV-02 — Multi-Level Approval Workflow
+
+# SW-GOV-03 — External System Data Synchronization
+
+# SW-AI-01 — Natural-Language HR Question
+
+# SW-AI-02 — Workforce Anomaly Review
+
+# SW-TA-01 — Attendance Correction
+
+# SW-TA-02 — Overtime Approval
+
+# SW-TA-03 — Manual and Offline Time Approval
+
+# SW-TA-04 — Shift Assignment and Change
+
+# SW-TA-05 — Schedule Conflict Resolution
+
+# SW-TA-06 — Leave Request Approval
+
+# SW-WT-01 — Authorized Activity Tracking Session
+
+# SW-WT-02 — Field Attendance and Geofence Validation
+
+# SW-PB-01 — Payroll Calculation
+
+# SW-PB-02 — Tax and Direct Deposit Processing
+
+# SW-PB-03 — Salary Review and Adjustment
+
+# SW-PB-04 — Benefit Enrollment
+
+# SW-PB-05 — Invoice Generation and Delivery
+
+# SW-PB-06 — Expense Reimbursement
 
 
 
