@@ -255,7 +255,7 @@ flowchart LR
 | 66 | UC-PB-10 | Payroll & Benefits | Client Billing & Expenses | Manage Expense Reimbursement and Invoicing | Employee; Manager; Payroll / Finance Staff | Submit expenses, approve reimbursements, and include eligible expenses in client invoices. |
 
 # UC-CORE-01 — Manage Organization Structure
-
+![alt text](docs/usecase/CORE-01.png)
 # UC-CORE-02
 
 # UC-CORE-03
