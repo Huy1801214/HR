@@ -255,44 +255,64 @@ flowchart LR
 | 66 | UC-PB-10 | Payroll & Benefits | Client Billing & Expenses | Manage Expense Reimbursement and Invoicing | Employee; Manager; Payroll / Finance Staff | Submit expenses, approve reimbursements, and include eligible expenses in client invoices. |
 
 # UC-CORE-01 — Manage Organization Structure
+![alt text](docs/usecase/UC-CORE-01_Manage-Organization-Structure.png)
 
 # UC-CORE-02 — Manage User Accounts
+![alt text](docs/usecase/UC-CORE-02_Manage-User-Accounts.png)
 
 # UC-CORE-03 — Manage Roles and Permissions
+![alt text](docs/usecase/UC-CORE-03_Manage-Roles-and-Permissions.png)
 
 # UC-CORE-04 — Manage Employee Records and Directory
+![alt text](docs/usecase/UC-CORE-04_Manage-Employee-Records-and-Directory.png)
 
 # UC-CORE-05 — Manage Employee Documents
+![alt text](docs/usecase/UC-CORE-05_Manage-Employee-Documents.png)
 
 # UC-CORE-06 — View Employee Data Change History
+![alt text](docs/usecase/UC-CORE-06_View-Employee-Data-Change-History.png)
 
 # UC-CORE-07 — Manage Engagement and Wellbeing Surveys
+![alt text](docs/usecase/UC-CORE-07_Manage-Engagement-and-Wellbeing-Surveys.png)
 
 # UC-CORE-08 — Manage Recognition and Rewards
+![alt text](docs/usecase/UC-CORE-08_Manage-Recognition-and-Rewards.png)
 
 # UC-CORE-09 — Manage Internal Announcements
+![alt text](docs/usecase/UC-CORE-09_Manage-Internal-Announcements.png)
 
 # UC-CORE-10 — Manage Goals and One-on-One Meetings
+![alt text](docs/usecase/UC-CORE-10_Manage-Goals-and-One-on-One-Meetings.png)
 
 # UC-CORE-11 — Manage Self and Manager Assessments
+![alt text](docs/usecase/UC-CORE-11_Manage-Self-and-Manager-Assessments.png)
 
 # UC-CORE-12 — Manage 360-Degree Feedback and Performance Reviews
+![alt text](docs/usecase/UC-CORE-12_Manage-360-Degree-Feedback-and-Performance-Reviews.png)
 
 # UC-REC-01 — Manage Job Openings
+![alt text](docs/usecase/UC-REC-01_Manage-Job-Openings.png)
 
 # UC-REC-02 — Manage Candidate Pipeline and Interviews
+![alt text](docs/usecase/UC-REC-02_Manage-Candidate-Pipeline-and-Interviews.png)
 
 # UC-REC-03 — Evaluate Candidates
+![alt text](docs/usecase/UC-REC-03_Evaluate-Candidates.png)
 
 # UC-REC-04 — Manage Job Offers
+![alt text](docs/usecase/UC-REC-04_Manage-Job-Offers.png)
 
 # UC-REC-05 — Collect New-Hire Information
+![alt text](docs/usecase/UC-REC-05_Collect-New-Hire-Information.png)
 
 # UC-REC-06 — Manage Onboarding Checklists
+![alt text](docs/usecase/UC-REC-06_Manage-Onboarding-Checklists.png)
 
 # UC-REC-07 — Manage Electronic Signatures
+![alt text](docs/usecase/UC-REC-07_Manage-Electronic-Signatures.png)
 
 # UC-REC-08 — Recover Employee Access and Equipment
+![alt text](docs/usecase/UC-REC-08_Recover-Employee-Access-and-Equipment.png)
 
 # UC-GOV-01 — Authenticate Users with 2FA and SSO
 
