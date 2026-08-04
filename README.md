@@ -267,6 +267,265 @@ flowchart LR
     class AM1,AM2,AM3,AM4,TT1,TT2,TT3,TT4,SC1,SC2,SC3,LM1,LM2,LM3 layer2;
 ```
 
+# Actors, Funtionals Mindmap for Core HR
+```mermaid
+flowchart LR
+
+    %% =====================================================
+    %% CENTER
+    %% =====================================================
+
+    CORE["Core HR"]
+
+    %% =====================================================
+    %% LEFT SIDE — HUMAN ACTORS
+    %% =====================================================
+
+    HUMAN["Human Actors"] --- CORE
+
+    EMP["Employee"] --- HUMAN
+    MGR["Manager"] --- HUMAN
+    HRA["HR Administrator"] --- HUMAN
+    HRM["HR Manager"] --- HUMAN
+    SYS["System Administrator"] --- HUMAN
+    REVIEWER["Review Participant"] --- HUMAN
+    EXEC["Executive"] --- HUMAN
+
+    %% Employee responsibilities
+    EMP1["Manage Own Profile"] --- EMP
+    EMP2["Manage Personal Documents"] --- EMP
+    EMP3["Participate in Employee Experience"] --- EMP
+    EMP4["Manage Goals and Assessments"] --- EMP
+
+    %% Manager responsibilities
+    MGR1["View and Manage Team Information"] --- MGR
+    MGR2["Review Employee Data Changes"] --- MGR
+    MGR3["Manage Team Goals and 1-on-1s"] --- MGR
+    MGR4["Conduct Performance Reviews"] --- MGR
+
+    %% HR Administrator responsibilities
+    HRA1["Manage Organization Structure"] --- HRA
+    HRA2["Manage Employee Records"] --- HRA
+    HRA3["Manage Documents and Data Changes"] --- HRA
+    HRA4["Administer Surveys and Review Cycles"] --- HRA
+
+    %% HR Manager responsibilities
+    HRM1["Approve Important HR Changes"] --- HRM
+    HRM2["Monitor Employee Data Quality"] --- HRM
+    HRM3["Approve HR Policies and Programs"] --- HRM
+    HRM4["Review Organization-Wide HR Results"] --- HRM
+
+    %% System Administrator responsibilities
+    SYS1["Manage User Accounts"] --- SYS
+    SYS2["Manage Roles and Permissions"] --- SYS
+    SYS3["Configure Authentication and Security"] --- SYS
+    SYS4["Manage Technical Integrations"] --- SYS
+
+    %% Review Participant responsibilities
+    REV1["View Feedback Requests"] --- REVIEWER
+    REV2["Provide 360-Degree Feedback"] --- REVIEWER
+    REV3["Evaluate Assigned Employees"] --- REVIEWER
+    REV4["Submit Review Feedback"] --- REVIEWER
+
+    %% Executive responsibilities
+    EX1["View HR Summary Reports"] --- EXEC
+    EX2["Review Engagement Trends"] --- EXEC
+    EX3["Review Performance Trends"] --- EXEC
+    EX4["Support Strategic HR Decisions"] --- EXEC
+
+    %% =====================================================
+    %% RIGHT SIDE — EXTERNAL SYSTEM ACTORS
+    %% =====================================================
+
+    CORE --- EXTERNAL["External System Actors"]
+
+    EXTERNAL --- IDP["Identity Provider"]
+    EXTERNAL --- NOTIFY["Notification Service"]
+    EXTERNAL --- ESIGN["Electronic Signature Service"]
+
+    %% Identity Provider responsibilities
+    IDP --- IDP1["Authenticate Users"]
+    IDP --- IDP2["Verify User Identity"]
+    IDP --- IDP3["Issue and Validate Tokens"]
+    IDP --- IDP4["Support Account Recovery"]
+
+    %% Notification Service responsibilities
+    NOTIFY --- N1["Send Account Notifications"]
+    NOTIFY --- N2["Send Data Change Notifications"]
+    NOTIFY --- N3["Send Survey and Review Reminders"]
+    NOTIFY --- N4["Send Recognition and Document Alerts"]
+
+    %% Electronic Signature Service responsibilities
+    ESIGN --- E1["Receive Documents for Signing"]
+    ESIGN --- E2["Verify Signer Identity"]
+    ESIGN --- E3["Record Electronic Signatures"]
+    ESIGN --- E4["Return Signed Documents and Status"]
+
+    %% =====================================================
+    %% STYLES
+    %% =====================================================
+
+    classDef center fill:#dbeafe,stroke:#2563eb,stroke-width:4px,color:#111,font-weight:bold;
+
+    classDef category fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px,color:#111,font-weight:bold;
+
+    classDef employee fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#111,font-weight:bold;
+    classDef manager fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#111,font-weight:bold;
+    classDef hr fill:#86efac,stroke:#16a34a,stroke-width:2px,color:#111,font-weight:bold;
+    classDef system fill:#c4b5fd,stroke:#7c3aed,stroke-width:2px,color:#111,font-weight:bold;
+    classDef specialized fill:#f9a8d4,stroke:#db2777,stroke-width:2px,color:#111,font-weight:bold;
+    classDef executive fill:#fca5a5,stroke:#dc2626,stroke-width:2px,color:#111,font-weight:bold;
+    classDef external fill:#67e8f9,stroke:#0891b2,stroke-width:2px,color:#111,font-weight:bold;
+
+    classDef functional fill:#ffffff,stroke:#94a3b8,stroke-width:1px,color:#111;
+
+    class CORE center;
+    class HUMAN,EXTERNAL category;
+
+    class EMP employee;
+    class MGR manager;
+    class HRA,HRM hr;
+    class SYS system;
+    class REVIEWER specialized;
+    class EXEC executive;
+
+    class IDP,NOTIFY,ESIGN external;
+
+    class EMP1,EMP2,EMP3,EMP4 functional;
+    class MGR1,MGR2,MGR3,MGR4 functional;
+    class HRA1,HRA2,HRA3,HRA4 functional;
+    class HRM1,HRM2,HRM3,HRM4 functional;
+    class SYS1,SYS2,SYS3,SYS4 functional;
+    class REV1,REV2,REV3,REV4 functional;
+    class EX1,EX2,EX3,EX4 functional;
+    class IDP1,IDP2,IDP3,IDP4 functional;
+    class N1,N2,N3,N4 functional;
+    class E1,E2,E3,E4 functional;
+```
+
+# Actors, Funtionals Mindmap for Time & Attedence
+```mermaid
+flowchart LR
+
+    %% =====================================================
+    %% CENTER
+    %% =====================================================
+
+    TA["Time & Attendance"]
+
+    %% =====================================================
+    %% LEFT SIDE — HUMAN ACTORS
+    %% =====================================================
+
+    HUMAN["Human Actors"] --- TA
+
+    EMP["Employee"] --- HUMAN
+    MGR["Manager"] --- HUMAN
+    HRA["HR Administrator"] --- HUMAN
+    HRM["HR Manager"] --- HUMAN
+    PAY["Payroll Administrator"] --- HUMAN
+    SYS["System Administrator"] --- HUMAN
+
+    %% Employee responsibilities
+    EMP1["Record Attendance"] --- EMP
+    EMP2["Track Working Time"] --- EMP
+    EMP3["View Work Schedule"] --- EMP
+    EMP4["Submit Leave Requests"] --- EMP
+
+    %% Manager responsibilities
+    MGR1["Review Team Attendance"] --- MGR
+    MGR2["Approve Timesheets"] --- MGR
+    MGR3["Manage Team Schedules"] --- MGR
+    MGR4["Approve Leave Requests"] --- MGR
+
+    %% HR Administrator responsibilities
+    HRA1["Configure Attendance Policies"] --- HRA
+    HRA2["Configure Time Tracking Rules"] --- HRA
+    HRA3["Manage Organization Schedules"] --- HRA
+    HRA4["Configure Leave Policies"] --- HRA
+
+    %% HR Manager responsibilities
+    HRM1["Approve HR Policies"] --- HRM
+    HRM2["Review Attendance Trends"] --- HRM
+    HRM3["Approve Exceptional Requests"] --- HRM
+    HRM4["Monitor Workforce Capacity"] --- HRM
+
+    %% Payroll Administrator responsibilities
+    PAY1["View Approved Time Data"] --- PAY
+    PAY2["Validate Payroll Hours"] --- PAY
+    PAY3["Export Data to Payroll"] --- PAY
+    PAY4["Mark Data as Processed"] --- PAY
+
+    %% System Administrator responsibilities
+    SYS1["Manage Access Permissions"] --- SYS
+    SYS2["Configure Time Clock Devices"] --- SYS
+    SYS3["Manage Integrations"] --- SYS
+    SYS4["Monitor Technical Logs"] --- SYS
+
+    %% =====================================================
+    %% RIGHT SIDE — EXTERNAL SYSTEM ACTORS
+    %% =====================================================
+
+    TA --- EXTERNAL["External System Actors"]
+
+    EXTERNAL --- KIOSK["Time Clock / Kiosk"]
+    EXTERNAL --- NOTIFY["Notification Service"]
+    EXTERNAL --- PROJECT["Project / Task Management System"]
+
+    %% Time Clock responsibilities
+    KIOSK --- K1["Capture Clock-In"]
+    KIOSK --- K2["Capture Clock-Out"]
+    KIOSK --- K3["Capture Break Events"]
+    KIOSK --- K4["Synchronize Attendance Data"]
+
+    %% Notification responsibilities
+    NOTIFY --- N1["Send Attendance Reminders"]
+    NOTIFY --- N2["Send Shift Notifications"]
+    NOTIFY --- N3["Send Approval Notifications"]
+    NOTIFY --- N4["Send Leave Notifications"]
+
+    %% Project system responsibilities
+    PROJECT --- P1["Provide Project Information"]
+    PROJECT --- P2["Provide Task Information"]
+    PROJECT --- P3["Validate Active Work Items"]
+    PROJECT --- P4["Receive Tracked Time"]
+
+    %% =====================================================
+    %% STYLES
+    %% =====================================================
+
+    classDef center fill:#dbeafe,stroke:#2563eb,stroke-width:4px,color:#111,font-weight:bold;
+
+    classDef category fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px,color:#111,font-weight:bold;
+
+    classDef employee fill:#fef08a,stroke:#ca8a04,stroke-width:2px,color:#111,font-weight:bold;
+    classDef manager fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#111,font-weight:bold;
+    classDef hr fill:#86efac,stroke:#16a34a,stroke-width:2px,color:#111,font-weight:bold;
+    classDef payroll fill:#fca5a5,stroke:#dc2626,stroke-width:2px,color:#111,font-weight:bold;
+    classDef system fill:#c4b5fd,stroke:#7c3aed,stroke-width:2px,color:#111,font-weight:bold;
+    classDef external fill:#67e8f9,stroke:#0891b2,stroke-width:2px,color:#111,font-weight:bold;
+
+    classDef functional fill:#ffffff,stroke:#94a3b8,stroke-width:1px,color:#111;
+
+    class TA center;
+    class HUMAN,EXTERNAL category;
+
+    class EMP employee;
+    class MGR manager;
+    class HRA,HRM hr;
+    class PAY payroll;
+    class SYS system;
+
+    class KIOSK,NOTIFY,PROJECT external;
+
+    class EMP1,EMP2,EMP3,EMP4 functional;
+    class MGR1,MGR2,MGR3,MGR4 functional;
+    class HRA1,HRA2,HRA3,HRA4 functional;
+    class HRM1,HRM2,HRM3,HRM4 functional;
+    class PAY1,PAY2,PAY3,PAY4 functional;
+    class SYS1,SYS2,SYS3,SYS4 functional;
+    class K1,K2,K3,K4,N1,N2,N3,N4,P1,P2,P3,P4 functional;
+```
 # Usecase Diagram for CoreHR
 ## Organization & Access
 ![alt text](<docs/images/Organization & Access.png>)
@@ -276,3 +535,13 @@ flowchart LR
 ![alt text](<docs/images/Employee Experience.png>)
 ## Performance & Goal Management
 ![alt text](<docs/images/Performance & Goal Management.png>)
+
+# Usecase Diagram for Time & Attendance
+## Attendance Management
+![alt text](<docs/images/Attendance Management.png>)
+## Time Tracking
+![alt text](<docs/images/Time Tracking.png>)
+## Scheduling
+![alt text](docs/images/Scheduling.png)
+## Leave Management 
+![alt text](<docs/images/Leave Management.png>)
