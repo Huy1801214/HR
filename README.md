@@ -255,28 +255,40 @@ flowchart LR
 | 66 | UC-PB-10 | Payroll & Benefits | Client Billing & Expenses | Manage Expense Reimbursement and Invoicing | Employee; Manager; Payroll / Finance Staff | Submit expenses, approve reimbursements, and include eligible expenses in client invoices. |
 
 # UC-CORE-01 — Manage Organization Structure
-![alt text](docs/usecase/CORE-01.png)
-# UC-CORE-02
+![alt text](docs/usecase/UC-CORE-01_Manage-Organization-Structure.png)
 
-# UC-CORE-03
+# UC-CORE-02 — Manage User Accounts
+![alt text](docs/usecase/UC-CORE-02_Manage-User-Accounts.png)
 
-# UC-CORE-04
+# UC-CORE-03 — Manage Roles and Permissions
+![alt text](docs/usecase/UC-CORE-03_Manage-Roles-and-Permissions.png)
 
-# UC-CORE-05
+# UC-CORE-04 — Manage Employee Records and Directory
+![alt text](docs/usecase/UC-CORE-04_Manage-Employee-Records-and-Directory.png)
 
-# UC-CORE-06
+# UC-CORE-05 — Manage Employee Documents
+![alt text](docs/usecase/UC-CORE-05_Manage-Employee-Documents.png)
 
-# UC-CORE-07
+# UC-CORE-06 — View Employee Data Change History
+![alt text](docs/usecase/UC-CORE-06_View-Employee-Data-Change-History.png)
 
-# UC-CORE-08
+# UC-CORE-07 — Manage Engagement and Wellbeing Surveys
+![alt text](docs/usecase/UC-CORE-07_Manage-Engagement-and-Wellbeing-Surveys.png)
 
-# UC-CORE-09
+# UC-CORE-08 — Manage Recognition and Rewards
+![alt text](docs/usecase/UC-CORE-08_Manage-Recognition-and-Rewards.png)
 
-# UC-CORE-10
+# UC-CORE-09 — Manage Internal Announcements
+![alt text](docs/usecase/UC-CORE-09_Manage-Internal-Announcements.png)
 
-# UC-CORE-11
+# UC-CORE-10 — Manage Goals and One-on-One Meetings
+![alt text](docs/usecase/UC-CORE-10_Manage-Goals-and-One-on-One-Meetings.png)
 
-# UC-CORE-12
+# UC-CORE-11 — Manage Self and Manager Assessments
+![alt text](docs/usecase/UC-CORE-11_Manage-Self-and-Manager-Assessments.png)
+
+# UC-CORE-12 — Manage 360-Degree Feedback and Performance Reviews
+![alt text](docs/usecase/UC-CORE-12_Manage-360-Degree-Feedback-and-Performance-Reviews.png)
 
 # UC-REC-01
 
