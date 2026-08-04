@@ -290,35 +290,50 @@ flowchart LR
 # UC-CORE-12 — Manage 360-Degree Feedback and Performance Reviews
 ![alt text](docs/usecase/UC-CORE-12_Manage-360-Degree-Feedback-and-Performance-Reviews.png)
 
-# UC-REC-01
+# UC-REC-01 — Manage Job Openings
+![alt text](docs/usecase/UC-REC-01_Manage-Job-Openings.png)
 
-# UC-REC-02
+# UC-REC-02 — Manage Candidate Pipeline and Interviews
+![alt text](docs/usecase/UC-REC-02_Manage-Candidate-Pipeline-and-Interviews.png)
 
-# UC-REC-03
+# UC-REC-03 — Evaluate Candidates
+![alt text](docs/usecase/UC-REC-03_Evaluate-Candidates.png)
 
-# UC-REC-04
+# UC-REC-04 — Manage Job Offers
+![alt text](docs/usecase/UC-REC-04_Manage-Job-Offers.png)
 
-# UC-REC-05
+# UC-REC-05 — Collect New-Hire Information
+![alt text](docs/usecase/UC-REC-05_Collect-New-Hire-Information.png)
 
-# UC-REC-06
+# UC-REC-06 — Manage Onboarding Checklists
+![alt text](docs/usecase/UC-REC-06_Manage-Onboarding-Checklists.png)
 
-# UC-REC-07
+# UC-REC-07 — Manage Electronic Signatures
+![alt text](docs/usecase/UC-REC-07_Manage-Electronic-Signatures.png)
 
-# UC-REC-08
+# UC-REC-08 — Recover Employee Access and Equipment
+![alt text](docs/usecase/UC-REC-08_Recover-Employee-Access-and-Equipment.png)
 
-# UC-GOV-01
+# UC-GOV-01 — Authenticate Users with 2FA and SSO
+![alt text](docs/usecase/UC-GOV-01_Authenticate-Users-with-2FA-and-SSO.png)
 
-# UC-GOV-02
+# UC-GOV-02 — Manage Role-Based Access Control
+![alt text](docs/usecase/UC-GOV-02_Manage-Role-Based-Access-Control.png)
 
-# UC-GOV-03
+# UC-GOV-03 — Manage Privacy and Audit Logs
+![alt text](docs/usecase/UC-GOV-03_Manage-Privacy-and-Audit-Logs.png)
 
-# UC-GOV-04
+# UC-GOV-04 — Manage Public APIs and Webhooks
+![alt text](docs/usecase/UC-GOV-04_Manage-Public-APIs-and-Webhooks.png)
 
-# UC-GOV-05
+# UC-GOV-05 — Integrate Payroll and Accounting Systems
+![alt text](docs/usecase/UC-GOV-05_Integrate-Payroll-and-Accounting-Systems.png)
 
-# UC-GOV-06
+# UC-GOV-06 — Manage Multi-Level Approval Workflows
+![alt text](docs/usecase/UC-GOV-06_Manage-Multi-Level-Approval-Workflows.png)
 
-# UC-GOV-07
+# UC-GOV-07 — Manage Dashboards and Notifications
+![alt text](docs/usecase/UC-GOV-07_Manage-Dashboards-and-Notifications.png)
 
 # UC-AI-01
 
