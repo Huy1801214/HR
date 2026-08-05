@@ -186,9 +186,9 @@ flowchart LR
 # HLUC-CORE-01 — Core HR — People & Organization
 ![alt text](<docs/usecase/p.png>)
 # HLUC-CORE-02 — Core HR — Access & Performance
-![alt text](docs/usecase/ap.drawio.png)
+![alt text](docs/usecase/per.png)
 # HLUC-REC-01 — Recruitment & Employee Lifecycle
-![alt text](docs/usecase/Usecase-Recruitmen.png)
+![alt text](docs/usecase/re.png)
 # HLUC-GOV-01 — Platform Administration & Governance
 ![alt text](docs/usecase/Platform.png)
 # HLUC-AI-01 — Analytics & HR Intelligence
