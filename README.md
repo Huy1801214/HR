@@ -192,11 +192,11 @@ flowchart LR
 # HLUC-GOV-01 — Platform Administration & Governance
 ![alt text](docs/usecase/Platform.png)
 # HLUC-AI-01 — Analytics & HR Intelligence
-![alt text](docs/usecase/Usecase-analystic.drawio.png)
+![alt text](docs/usecase/ai.png)
 # HLUC-TA-01 — Attendance & Time Tracking
 ![alt text](docs/usecase/Attendance.png)
 # HLUC-TA-02 — Scheduling & Leave
-![alt text](docs/usecase/scheduling.png)
+![alt text](docs/usecase/Usecase-Scheduling.drawio.png)
 # HLUC-WT-01 — Workforce Activity & Location
 ![alt text](docs/usecase/Usecase-Workforce.png)
 # HLUC-PB-01 — Payroll, Compensation & Benefits
