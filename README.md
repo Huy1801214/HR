@@ -254,6 +254,110 @@ flowchart LR
 | 65 | UC-PB-09 | Payroll & Benefits | Client Billing & Expenses | Generate and Deliver Invoices | Payroll / Finance Staff; External System | Generate invoices from billable time and deliver them to clients. |
 | 66 | UC-PB-10 | Payroll & Benefits | Client Billing & Expenses | Manage Expense Reimbursement and Invoicing | Employee; Manager; Payroll / Finance Staff | Submit expenses, approve reimbursements, and include eligible expenses in client invoices. |
 
+# Information Architecture (IA)
+
+```mermaid
+flowchart LR
+
+    %% ROOT NODE
+    HR["HR Platform"]
+
+    %% LEVEL 1 MODULES (PRIMARY AREAS)
+    HR --- HOME["Home"]
+    HR --- TASKS["My Tasks"]
+    HR --- PEOPLE["People"]
+    HR --- RECRUITMENT["Recruitment"]
+    HR --- TIME["Time & Attendance"]
+    HR --- TRACKING["Workforce Tracking"]
+    HR --- PERFORMANCE["Performance"]
+    HR --- PAYROLL["Payroll & Benefits"]
+    HR --- ANALYTICS["Reports & Analytics"]
+    HR --- AI["HR Intelligence & AI"]
+    HR --- ADMIN["Administration"]
+    HR --- ACCOUNT["My Account"]
+
+    %% LEVEL 2 SUB-MODULES (FEATURES)
+
+    %% Home
+    HOME --- MY_DASHBOARD["My Dashboard"]
+    HOME --- TEAM_DASHBOARD["Team Dashboard"]
+    HOME --- EXEC_DASHBOARD["Executive Dashboard"]
+    HOME --- NOTIFICATIONS["Notifications"]
+
+    %% My Tasks
+    TASKS --- MY_REQUESTS["My Requests"]
+    TASKS --- APPROVALS["Approvals"]
+    TASKS --- ASSIGNED_TASKS["Assigned Tasks"]
+    TASKS --- EXCEPTIONS["Exceptions"]
+
+    %% People
+    PEOPLE --- EMPLOYEES["Employees"]
+    PEOPLE --- ORGANIZATION["Organization"]
+    PEOPLE --- DOCUMENTS["Employee Documents"]
+    PEOPLE --- EXPERIENCE["Employee Experience"]
+
+    %% Recruitment
+    RECRUITMENT --- JOBS["Job Openings"]
+    RECRUITMENT --- CANDIDATES["Candidates"]
+    RECRUITMENT --- INTERVIEWS["Interviews & Evaluations"]
+    RECRUITMENT --- OFFERS["Offers"]
+    RECRUITMENT --- ONBOARDING["Onboarding"]
+    RECRUITMENT --- OFFBOARDING["Offboarding"]
+
+    %% Time & Attendance
+    TIME --- ATTENDANCE["Attendance"]
+    TIME --- TIME_TRACKING["Time Tracking"]
+    TIME --- SCHEDULING["Scheduling"]
+    TIME --- LEAVE["Leave"]
+
+    %% Workforce Tracking
+    TRACKING --- ACTIVITY["Activity & Productivity"]
+    TRACKING --- LOCATION["Location & Field Operations"]
+
+    %% Performance
+    PERFORMANCE --- GOALS["Goals & 1-on-1s"]
+    PERFORMANCE --- ASSESSMENTS["Assessments"]
+    PERFORMANCE --- REVIEWS["Feedback & Reviews"]
+
+    %% Payroll & Benefits
+    PAYROLL --- PAYROLL_PROCESSING["Payroll Processing"]
+    PAYROLL --- COMPENSATION["Compensation & Benefits"]
+    PAYROLL --- BILLING["Billing & Expenses"]
+
+    %% Reports & Analytics
+    ANALYTICS --- HR_REPORTS["HR & Recruitment Reports"]
+    ANALYTICS --- TIME_REPORTS["Time, Attendance & Cost Reports"]
+    ANALYTICS --- CUSTOM_REPORTS["Custom Dashboards & Exports"]
+
+    %% HR Intelligence & AI
+    AI --- ASK_HR["Ask HR"]
+    AI --- POLICY_SEARCH["Policy & Document Search"]
+    AI --- WORKFORCE_INSIGHTS["Workforce Insights"]
+    AI --- RECOMMENDATIONS["Recommendations"]
+
+    %% Administration
+    ADMIN --- ORG_ACCOUNTS["Organization & Accounts"]
+    ADMIN --- ACCESS["Roles & Permissions"]
+    ADMIN --- WORKFLOWS["Approval Workflows"]
+    ADMIN --- SECURITY["Security & Compliance"]
+    ADMIN --- INTEGRATIONS["Integrations"]
+    ADMIN --- API["API & Webhooks"]
+
+    %% My Account
+    ACCOUNT --- PROFILE["Profile"]
+    ACCOUNT --- PREFERENCES["Preferences"]
+    ACCOUNT --- ACCOUNT_SECURITY["Security"]
+
+    %% STYLES BY LEVEL
+    classDef root fill:#0F172A,color:#FFFFFF,stroke:#38BDF8,stroke-width:3px,font-weight:bold;
+    classDef main fill:#1E40AF,color:#FFFFFF,stroke:#3B82F6,stroke-width:2px,font-weight:bold;
+    classDef sub fill:#F8FAFC,color:#0F172A,stroke:#CBD5E1,stroke-width:1px;
+
+    class HR root;
+    class HOME,TASKS,PEOPLE,RECRUITMENT,TIME,TRACKING,PERFORMANCE,PAYROLL,ANALYTICS,AI,ADMIN,ACCOUNT main;
+    class MY_DASHBOARD,TEAM_DASHBOARD,EXEC_DASHBOARD,NOTIFICATIONS,MY_REQUESTS,APPROVALS,ASSIGNED_TASKS,EXCEPTIONS,EMPLOYEES,ORGANIZATION,DOCUMENTS,EXPERIENCE,JOBS,CANDIDATES,INTERVIEWS,OFFERS,ONBOARDING,OFFBOARDING,ATTENDANCE,TIME_TRACKING,SCHEDULING,LEAVE,ACTIVITY,LOCATION,GOALS,ASSESSMENTS,REVIEWS,PAYROLL_PROCESSING,COMPENSATION,BILLING,HR_REPORTS,TIME_REPORTS,CUSTOM_REPORTS,ASK_HR,POLICY_SEARCH,WORKFORCE_INSIGHTS,RECOMMENDATIONS,ORG_ACCOUNTS,ACCESS,WORKFLOWS,SECURITY,INTEGRATIONS,API,PROFILE,PREFERENCES,ACCOUNT_SECURITY sub;
+```
+
 # Actor Relationships 
 ![alt text](docs/usecase/HR.png)
 # UC-CORE-01 — Manage Organization Structure
