@@ -204,3 +204,26 @@ flowchart LR
 # HLUC-PB-02 — Billing & Expenses
 ![alt text](docs/usecase/Billing.png)
 
+# SW-01 — Employee Information & Organization Management
+![alt text](docs/swimlane/sw01.png)
+
+# SW-02 — Performance Management Cycle
+![alt text](docs/swimlane/sw02.png)
+
+# SW-03 — Recruitment Process
+![alt text](docs/swimlane/sw03.png)
+
+# SW-04 — Platform Governance & Approval
+![alt text](docs/swimlane/sw04.png)
+
+# SW-05 — HR Analytics & AI
+![alt text](docs/swimlane/sw05.png)
+
+# SW-06 — Time, Attendance & Leave Management
+![alt text](docs/swimlane/sw06.png)
+
+# SW-07 — Workforce Tracking
+![alt text](docs/swimlane/sw07.png)
+
+# SW-08 — Payroll, Benefits, Billing & Expenses
+![alt text](docs/swimlane/sw08.png)
