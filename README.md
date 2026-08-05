@@ -184,25 +184,25 @@ flowchart LR
 ```
 
 # HLUC-CORE-01 — Core HR — People & Organization
-![alt text](docs/usecase/People.png)
+![alt text](<docs/usecase/p.png>)
 # HLUC-CORE-02 — Core HR — Access & Performance
-![alt text](docs/usecase/PM.png)
+![alt text](docs/usecase/ap.drawio.png)
 # HLUC-REC-01 — Recruitment & Employee Lifecycle
-![alt text](docs/usecase/recruiter.png)
+![alt text](docs/usecase/Usecase-Recruitmen.png)
 # HLUC-GOV-01 — Platform Administration & Governance
 ![alt text](docs/usecase/Platform.png)
 # HLUC-AI-01 — Analytics & HR Intelligence
-![alt text](docs/usecase/AI.png)
+![alt text](docs/usecase/Usecase-analystic.drawio.png)
 # HLUC-TA-01 — Attendance & Time Tracking
 ![alt text](docs/usecase/Attendance.png)
 # HLUC-TA-02 — Scheduling & Leave
 ![alt text](docs/usecase/scheduling.png)
 # HLUC-WT-01 — Workforce Activity & Location
-![alt text](docs/usecase/workforce.png)
+![alt text](docs/usecase/Usecase-Workforce.png)
 # HLUC-PB-01 — Payroll, Compensation & Benefits
-![alt text](docs/usecase/Export.png)
+![alt text](docs/usecase/Usecase-Payroll.drawio.png)
 # HLUC-PB-02 — Billing & Expenses
-![alt text](docs/usecase/Billing.png)
+![alt text](docs/usecase/Usecase-Billing.drawio.png)
 
 # SW-01 — Employee Information & Organization Management
 ![alt text](docs/swimlane/sw01.png)
