@@ -183,39 +183,24 @@ flowchart LR
     class OA1,OA2,OA3,EI1,EI2,EI3,EE1,EE2,EE3,PG1,PG2,PG3,HA1,HA2,HA3,HA4,OO1,OO2,OO3,OO4,CS1,CS2,CS3,IW1,IW2,IW3,IW4,RA1,RA2,RA3,AI1,AI2,AI3,AI4,AM1,AM2,AM3,AM4,TT1,TT2,TT3,TT4,SC1,SC2,SC3,LM1,LM2,LM3,AP1,AP2,AP3,AP4,LF1,LF2,LF3,LF4,PP1,PP2,PP3,PP4,CB1,CB2,CB3,BE1,BE2,BE3 layer3;
 ```
 
-## Use Case Diagram List
-
-| No. | Diagram ID | Module | Diagram Name | Functional | Main Actors |
-|---:|---|---|---|---|---|
-| 1 | HLUC-CORE-01 | Core HR | Core HR — People & Organization | Manage Organization; Manage Employee Information; Manage Employee Documents; Manage Employee Experience | Employee; Manager; HR Staff |
-| 2 | HLUC-CORE-02 | Core HR | Core HR — Access & Performance | Manage User Access; Manage Goals & Performance; Manage Assessments; Manage Feedback & Reviews | Employee; Manager; HR Staff; System Administrator |
-| 3 | HLUC-REC-01 | Recruitment & Onboarding | Recruitment & Employee Lifecycle | Manage Recruitment; Manage Candidates; Manage Interviews; Manage Job Offers; Manage Onboarding; Manage Offboarding | Candidate / New Hire; Recruiter; Manager; HR Staff; System Administrator |
-| 4 | HLUC-GOV-01 | Platform & Governance | Platform Administration & Governance | Manage Authentication & Access; Manage Security & Compliance; Manage Integrations; Manage Approval Workflows; Manage Notifications | Employee; Manager; HR Staff; Payroll / Finance Staff; System Administrator; External System |
-| 5 | HLUC-AI-01 | Analytics & AI | Analytics & HR Intelligence | Manage Reports & Dashboards; Ask HR Questions; Search HR Knowledge; Analyze Workforce Insights; Generate Recommendations | Employee; Manager; HR Staff; Recruiter; Payroll / Finance Staff |
-| 6 | HLUC-TA-01 | Time & Attendance | Attendance & Time Tracking | Manage Attendance; Manage Work Time; Manage Timesheets; Manage Overtime | Employee; Manager; HR Staff; Payroll / Finance Staff |
-| 7 | HLUC-TA-02 | Time & Attendance | Scheduling & Leave | Manage Work Schedules; Manage Leave; Manage Leave Policies; Manage Holiday Calendars | Employee; Manager; HR Staff |
-| 8 | HLUC-WT-01 | Workforce Tracking | Workforce Activity & Location | Monitor Work Activity; Analyze Productivity; Track Workforce Location; Manage Field Attendance | Employee; Manager; HR Staff; External System |
-| 9 | HLUC-PB-01 | Payroll & Benefits | Payroll, Compensation & Benefits | Manage Pay Rates; Process Payroll; Manage Compensation; Manage Employee Benefits | Employee; Manager; HR Staff; Payroll / Finance Staff; External System |
-| 10 | HLUC-PB-02 | Payroll & Benefits | Billing & Expenses | Manage Billable Time; Manage Client Invoices; Manage Expense Reimbursement | Employee; Manager; Payroll / Finance Staff; External System |
-
 # HLUC-CORE-01 — Core HR — People & Organization
 ![alt text](docs/usecase/People.png)
 # HLUC-CORE-02 — Core HR — Access & Performance
-
+![alt text](docs/usecase/PM.png)
 # HLUC-REC-01 — Recruitment & Employee Lifecycle
-
+![alt text](docs/usecase/recruiter.png)
 # HLUC-GOV-01 — Platform Administration & Governance
-
+![alt text](docs/usecase/Platform.png)
 # HLUC-AI-01 — Analytics & HR Intelligence
-
+![alt text](docs/usecase/AI.png)
 # HLUC-TA-01 — Attendance & Time Tracking
-
+![alt text](docs/usecase/Attendance.png)
 # HLUC-TA-02 — Scheduling & Leave
-
+![alt text](docs/usecase/scheduling.png)
 # HLUC-WT-01 — Workforce Activity & Location
-
+![alt text](docs/usecase/workforce.png)
 # HLUC-PB-01 — Payroll, Compensation & Benefits
-
+![alt text](docs/usecase/Export.png)
 # HLUC-PB-02 — Billing & Expenses
-
+![alt text](docs/usecase/Billing.png)
 
