@@ -19,54 +19,56 @@ flowchart TB
     classDef onboardingStyle fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#7e22ce;
     classDef taskStyle fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#c2410c;
     classDef trackingStyle fill:#ccfbf1,stroke:#0d9488,stroke-width:2px,color:#0f766e;
-    classDef notifyStyle fill:#ffe4e6,stroke:#e11d48,stroke-width:2px,color:#be123c;
 
     %% ==========================================
     %% SUBGRAPHS (MODULES)
     %% ==========================================
     subgraph MODULE_CORE["1. Core System & Auth"]
-        DEPARTMENTS:::coreStyle
-        POSITIONS:::coreStyle
-        USERS:::coreStyle
-        ROLES:::coreStyle
-        USER_ROLES:::coreStyle
+        DEPARTMENT:::coreStyle
+        POSITION:::coreStyle
+        USER:::coreStyle
+        ROLE:::coreStyle
+        USER_ROLE:::coreStyle
     end
 
     subgraph MODULE_RECRUIT["2. Recruitment & Offers"]
-        CANDIDATES:::recruitStyle
-        APPLICATION_STAGES:::recruitStyle
-        APPLICATIONS:::recruitStyle
-        OFFERS:::recruitStyle
-        OFFER_RESPONSES:::recruitStyle
+        CANDIDATE:::recruitStyle
+        APPLICATION_STAGE:::recruitStyle
+        APPLICATION:::recruitStyle
+        OFFER:::recruitStyle
+        OFFER_RESPONSE:::recruitStyle
     end
 
-    subgraph MODULE_TEMPLATES["3. Templates & Drafts"]
-        ONBOARDING_TEMPLATES:::templateStyle
-        TASK_TEMPLATES:::templateStyle
-        ONBOARDING_DRAFTS:::templateStyle
+    subgraph MODULE_TEMPLATES["3. Automation Hub & Templates"]
+        ONBOARDING_TEMPLATE:::templateStyle
+        TASK_TEMPLATE:::templateStyle
+        ONBOARDING_DRAFT:::templateStyle
+        FIELD_MAPPING:::templateStyle
+        PROCESS_AUTOMATION:::templateStyle
+        PROCESS_AUTOMATION_OFFER:::templateStyle
+        PROCESS_AUTOMATION_DRAFT:::templateStyle
+        PROCESS_AUTOMATION_TEMPLATE:::templateStyle
+        PROCESS_AUTOMATION_ONBOARDING_TASK:::templateStyle
     end
 
     subgraph MODULE_EXECUTION["4. Employee & Execution"]
-        EMPLOYEES:::onboardingStyle
-        ONBOARDING_STAGES:::onboardingStyle
-        ONBOARDING_CASES:::onboardingStyle
+        EMPLOYEE:::onboardingStyle
+        ONBOARDING_STAGE:::onboardingStyle
+        ONBOARDING_CASE:::onboardingStyle
     end
 
     subgraph MODULE_TASKS["5. Tasks & Assignments"]
-        ONBOARDING_TASKS:::taskStyle
-        TASK_ASSIGNMENTS:::taskStyle
-        READINESS_CHECKLIST_ITEMS:::taskStyle
+        ONBOARDING_TASK:::taskStyle
+        TASK_ASSIGNMENT:::taskStyle
+        READINESS_CHECKLIST_ITEM:::taskStyle
     end
 
     subgraph MODULE_TRACKING["6. Tracking & Feedback"]
-        ONBOARDING_MILESTONES:::trackingStyle
-        CHECK_INS:::trackingStyle
+        ONBOARDING_MILESTONE:::trackingStyle
+        ONBOARDING_CASE_MILESTONE:::trackingStyle
+        CHECK_IN:::trackingStyle
         FEEDBACK:::trackingStyle
-        ONBOARDING_BLOCKERS:::trackingStyle
-    end
-
-    subgraph MODULE_NOTIFY["7. Notifications"]
-        NOTIFICATIONS:::notifyStyle
+        ONBOARDING_BLOCKER:::trackingStyle
     end
 
     %% Subgraph Layout Fills
@@ -76,74 +78,64 @@ flowchart TB
     style MODULE_EXECUTION fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px
     style MODULE_TASKS fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px
     style MODULE_TRACKING fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px
-    style MODULE_NOTIFY fill:#f8fafc,stroke:#cbd5e1,stroke-width:1.5px
 
     %% ==========================================
     %% RELATIONSHIPS & CARDINALITY
     %% ==========================================
-    DEPARTMENTS -- "1 : N (has)" --> USERS
-    POSITIONS -- "1 : N (has)" --> USERS
-    USERS -- "1 : N (assigned)" --> USER_ROLES
-    ROLES -- "1 : N (includes)" --> USER_ROLES
+    DEPARTMENT -- "1 : N" --> EMPLOYEE
+    POSITION -- "1 : N" --> EMPLOYEE
+    USER -- "1 : N" --> EMPLOYEE
+    USER -- "1 : N" --> USER_ROLE
+    ROLE -- "1 : N" --> USER_ROLE
 
-    CANDIDATES -- "1 : N (submits)" --> APPLICATIONS
-    POSITIONS -- "1 : N (applies_for)" --> APPLICATIONS
-    APPLICATION_STAGES -- "1 : N (current_stage)" --> APPLICATIONS
-    USERS -- "1 : N (manages)" --> APPLICATIONS
+    CANDIDATE -- "1 : N" --> APPLICATION
+    POSITION -- "1 : N" --> APPLICATION
+    APPLICATION_STAGE -- "1 : N" --> APPLICATION
+    USER -- "1 : N" --> APPLICATION
 
-    APPLICATIONS -- "1 : N (produces)" --> OFFERS
-    CANDIDATES -- "1 : N (receives)" --> OFFERS
-    USERS -- "1 : N (prepares)" --> OFFERS
-    OFFERS -- "1 : N (has)" --> OFFER_RESPONSES
+    APPLICATION -- "1 : N" --> OFFER
+    OFFER -- "1 : N" --> OFFER_RESPONSE
 
-    DEPARTMENTS -- "1 : N (owns)" --> ONBOARDING_TEMPLATES
-    ONBOARDING_TEMPLATES -- "1 : N (contains)" --> TASK_TEMPLATES
-    ROLES -- "1 : N (assigned_role)" --> TASK_TEMPLATES
+    CANDIDATE -- "1 : N" --> ONBOARDING_DRAFT
+    OFFER -- "1 : N" --> ONBOARDING_DRAFT
+    ONBOARDING_TEMPLATE -- "1 : N" --> ONBOARDING_DRAFT
+    ONBOARDING_TEMPLATE -- "1 : N" --> TASK_TEMPLATE
+    ONBOARDING_DRAFT -- "1 : N" --> FIELD_MAPPING
+    TASK_TEMPLATE -- "1 : N" --> ONBOARDING_TASK
 
-    CANDIDATES -- "1 : N (has)" --> ONBOARDING_DRAFTS
-    OFFERS -- "1 : 1 (generates)" --> ONBOARDING_DRAFTS
-    ONBOARDING_TEMPLATES -- "1 : N (uses)" --> ONBOARDING_DRAFTS
-    USERS -- "1 : N (reviews)" --> ONBOARDING_DRAFTS
+    PROCESS_AUTOMATION -- "1 : N" --> PROCESS_AUTOMATION_OFFER
+    OFFER -- "1 : N" --> PROCESS_AUTOMATION_OFFER
+    PROCESS_AUTOMATION -- "1 : N" --> PROCESS_AUTOMATION_DRAFT
+    ONBOARDING_DRAFT -- "1 : N" --> PROCESS_AUTOMATION_DRAFT
+    PROCESS_AUTOMATION -- "1 : N" --> PROCESS_AUTOMATION_TEMPLATE
+    ONBOARDING_TEMPLATE -- "1 : N" --> PROCESS_AUTOMATION_TEMPLATE
+    PROCESS_AUTOMATION -- "1 : N" --> PROCESS_AUTOMATION_ONBOARDING_TASK
+    ONBOARDING_TASK -- "1 : N" --> PROCESS_AUTOMATION_ONBOARDING_TASK
 
-    CANDIDATES -- "1 : 1 (becomes)" --> EMPLOYEES
-    DEPARTMENTS -- "1 : N (belongs_to)" --> EMPLOYEES
-    POSITIONS -- "1 : N (holds)" --> EMPLOYEES
-    USERS -- "1 : N (manages)" --> EMPLOYEES
+    CANDIDATE -- "1 : 1" --> EMPLOYEE
+    EMPLOYEE -- "1 : N" --> ONBOARDING_CASE
+    OFFER -- "1 : 1" --> ONBOARDING_CASE
+    ONBOARDING_TEMPLATE -- "1 : N" --> ONBOARDING_CASE
+    ONBOARDING_STAGE -- "1 : N" --> ONBOARDING_CASE
 
-    CANDIDATES -- "1 : N (enters)" --> ONBOARDING_CASES
-    OFFERS -- "1 : 1 (starts)" --> ONBOARDING_CASES
-    EMPLOYEES -- "1 : 1 (created_for)" --> ONBOARDING_CASES
-    ONBOARDING_TEMPLATES -- "1 : N (based_on)" --> ONBOARDING_CASES
-    ONBOARDING_STAGES -- "1 : N (current_stage)" --> ONBOARDING_CASES
-    USERS -- "1 : N (creates)" --> ONBOARDING_CASES
+    ONBOARDING_CASE -- "1 : N" --> ONBOARDING_TASK
+    ONBOARDING_TASK -- "1 : N" --> TASK_ASSIGNMENT
+    ROLE -- "1 : N" --> TASK_ASSIGNMENT
+    USER -- "1 : N" --> TASK_ASSIGNMENT
+    ONBOARDING_CASE -- "1 : N" --> READINESS_CHECKLIST_ITEM
 
-    ONBOARDING_CASES -- "1 : N (contains)" --> ONBOARDING_TASKS
-    TASK_TEMPLATES -- "1 : N (generates)" --> ONBOARDING_TASKS
+    ONBOARDING_CASE -- "1 : N" --> ONBOARDING_CASE_MILESTONE
+    ONBOARDING_MILESTONE -- "1 : N" --> ONBOARDING_CASE_MILESTONE
+    ONBOARDING_CASE -- "1 : N" --> CHECK_IN
+    ONBOARDING_CASE_MILESTONE -- "1 : N" --> CHECK_IN
+    USER -- "1 : N" --> CHECK_IN
 
-    ONBOARDING_TASKS -- "1 : N (has)" --> TASK_ASSIGNMENTS
-    USERS -- "1 : N (assigned_to)" --> TASK_ASSIGNMENTS
-    ROLES -- "1 : N (assigned_role)" --> TASK_ASSIGNMENTS
+    ONBOARDING_CASE -- "1 : N" --> FEEDBACK
+    ONBOARDING_CASE_MILESTONE -- "1 : N" --> FEEDBACK
+    USER -- "1 : N" --> FEEDBACK
 
-    ONBOARDING_CASES -- "1 : N (has)" --> READINESS_CHECKLIST_ITEMS
-    ONBOARDING_TASKS -- "1 : N (satisfies)" --> READINESS_CHECKLIST_ITEMS
-
-    ONBOARDING_CASES -- "1 : N (tracks)" --> ONBOARDING_MILESTONES
-
-    ONBOARDING_CASES -- "1 : N (has)" --> CHECK_INS
-    ONBOARDING_MILESTONES -- "1 : N (includes)" --> CHECK_INS
-    USERS -- "1 : N (creates)" --> CHECK_INS
-
-    ONBOARDING_CASES -- "1 : N (has)" --> FEEDBACK
-    ONBOARDING_MILESTONES -- "1 : N (relates_to)" --> FEEDBACK
-    USERS -- "1 : N (writes)" --> FEEDBACK
-
-    ONBOARDING_CASES -- "1 : N (has)" --> ONBOARDING_BLOCKERS
-    ONBOARDING_TASKS -- "1 : N (related_to)" --> ONBOARDING_BLOCKERS
-    USERS -- "1 : N (reports)" --> ONBOARDING_BLOCKERS
-
-    USERS -- "1 : N (receives)" --> NOTIFICATIONS
-    ONBOARDING_CASES -- "1 : N (triggers)" --> NOTIFICATIONS
-    ONBOARDING_TASKS -- "1 : N (related_to)" --> NOTIFICATIONS
+    ONBOARDING_CASE -- "1 : N" --> ONBOARDING_BLOCKER
+    ONBOARDING_TASK -- "1 : N" --> ONBOARDING_BLOCKER
 ```
 
 ---
@@ -156,121 +148,114 @@ erDiagram
     %% ------------------------------------------
     %% 1. CORE SYSTEM & AUTHENTICATION
     %% ------------------------------------------
-    DEPARTMENTS
-    POSITIONS
-    USERS
-    ROLES
-    USER_ROLES
+    DEPARTMENT
+    POSITION
+    USER
+    ROLE
+    USER_ROLE
 
     %% ------------------------------------------
     %% 2. RECRUITMENT & OFFERS
     %% ------------------------------------------
-    CANDIDATES
-    APPLICATION_STAGES
-    APPLICATIONS
-    OFFERS
-    OFFER_RESPONSES
+    CANDIDATE
+    APPLICATION_STAGE
+    APPLICATION
+    OFFER
+    OFFER_RESPONSE
 
     %% ------------------------------------------
-    %% 3. ONBOARDING TEMPLATES & DRAFTS
+    %% 3. AUTOMATION HUB & TEMPLATES
     %% ------------------------------------------
-    ONBOARDING_TEMPLATES
-    TASK_TEMPLATES
-    ONBOARDING_DRAFTS
+    ONBOARDING_TEMPLATE
+    TASK_TEMPLATE
+    ONBOARDING_DRAFT
+    FIELD_MAPPING
+    PROCESS_AUTOMATION
+    PROCESS_AUTOMATION_OFFER
+    PROCESS_AUTOMATION_DRAFT
+    PROCESS_AUTOMATION_TEMPLATE
+    PROCESS_AUTOMATION_ONBOARDING_TASK
 
     %% ------------------------------------------
     %% 4. EMPLOYEES & ONBOARDING EXECUTION
     %% ------------------------------------------
-    EMPLOYEES
-    ONBOARDING_STAGES
-    ONBOARDING_CASES
+    EMPLOYEE
+    ONBOARDING_STAGE
+    ONBOARDING_CASE
 
     %% ------------------------------------------
-    %% 5. TASKS, ASSIGNMENTS & CHECKLISTS
+    %% 5. TASKS & ASSIGNMENTS
     %% ------------------------------------------
-    ONBOARDING_TASKS
-    TASK_ASSIGNMENTS
-    READINESS_CHECKLIST_ITEMS
+    ONBOARDING_TASK
+    TASK_ASSIGNMENT
+    READINESS_CHECKLIST_ITEM
 
     %% ------------------------------------------
-    %% 6. TRACKING, MILESTONES & FEEDBACK
+    %% 6. TRACKING & FEEDBACK
     %% ------------------------------------------
-    ONBOARDING_MILESTONES
-    CHECK_INS
+    ONBOARDING_MILESTONE
+    ONBOARDING_CASE_MILESTONE
+    CHECK_IN
     FEEDBACK
-    ONBOARDING_BLOCKERS
-
-    %% ------------------------------------------
-    %% 7. NOTIFICATIONS
-    %% ------------------------------------------
-    NOTIFICATIONS
+    ONBOARDING_BLOCKER
 
     %% ==========================================
     %% RELATIONSHIPS
     %% ==========================================
-    DEPARTMENTS ||--o{ USERS : "has"
-    POSITIONS ||--o{ USERS : "has"
-    USERS ||--o{ USER_ROLES : "assigned"
-    ROLES ||--o{ USER_ROLES : "includes"
+    DEPARTMENT ||--o{ EMPLOYEE : "contains"
+    POSITION ||--o{ EMPLOYEE : "held_by"
+    USER ||--o{ EMPLOYEE : "manages"
+    USER ||--o{ USER_ROLE : "has"
+    ROLE ||--o{ USER_ROLE : "assigned"
 
-    CANDIDATES ||--o{ APPLICATIONS : "submits"
-    POSITIONS ||--o{ APPLICATIONS : "applies_for"
-    APPLICATION_STAGES ||--o{ APPLICATIONS : "current_stage"
-    USERS ||--o{ APPLICATIONS : "manages"
+    CANDIDATE ||--o{ APPLICATION : "submits"
+    POSITION ||--o{ APPLICATION : "receives"
+    APPLICATION_STAGE ||--o{ APPLICATION : "current_stage"
+    USER ||--o{ APPLICATION : "owns"
 
-    APPLICATIONS ||--o{ OFFERS : "produces"
-    CANDIDATES ||--o{ OFFERS : "receives"
-    USERS ||--o{ OFFERS : "prepares"
-    OFFERS ||--o{ OFFER_RESPONSES : "has"
+    APPLICATION ||--o{ OFFER : "produces"
+    OFFER ||--o{ OFFER_RESPONSE : "receives"
 
-    DEPARTMENTS ||--o{ ONBOARDING_TEMPLATES : "owns"
-    ONBOARDING_TEMPLATES ||--o{ TASK_TEMPLATES : "contains"
-    ROLES ||--o{ TASK_TEMPLATES : "assigned_role"
+    CANDIDATE ||--o{ ONBOARDING_DRAFT : "has"
+    OFFER o|--o{ ONBOARDING_DRAFT : "sources"
+    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_DRAFT : "used_by"
+    ONBOARDING_TEMPLATE ||--o{ TASK_TEMPLATE : "contains"
+    ONBOARDING_DRAFT ||--o{ FIELD_MAPPING : "has"
+    TASK_TEMPLATE o|--o{ ONBOARDING_TASK : "generates"
 
-    CANDIDATES ||--o{ ONBOARDING_DRAFTS : "has"
-    OFFERS ||--o| ONBOARDING_DRAFTS : "generates"
-    ONBOARDING_TEMPLATES ||--o{ ONBOARDING_DRAFTS : "uses"
-    USERS ||--o{ ONBOARDING_DRAFTS : "reviews"
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_OFFER : "has"
+    OFFER ||--o{ PROCESS_AUTOMATION_OFFER : "involved_in"
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_DRAFT : "has"
+    ONBOARDING_DRAFT ||--o{ PROCESS_AUTOMATION_DRAFT : "involved_in"
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TEMPLATE : "has"
+    ONBOARDING_TEMPLATE ||--o{ PROCESS_AUTOMATION_TEMPLATE : "involved_in"
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : "has"
+    ONBOARDING_TASK ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : "involved_in"
 
-    CANDIDATES ||--o| EMPLOYEES : "becomes"
-    DEPARTMENTS ||--o{ EMPLOYEES : "belongs_to"
-    POSITIONS ||--o{ EMPLOYEES : "holds"
-    USERS ||--o{ EMPLOYEES : "manages"
+    CANDIDATE ||--o| EMPLOYEE : "becomes"
+    EMPLOYEE ||--o{ ONBOARDING_CASE : "has"
+    OFFER ||--o| ONBOARDING_CASE : "starts"
+    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_CASE : "used_by"
+    ONBOARDING_STAGE ||--o{ ONBOARDING_CASE : "current_stage"
 
-    CANDIDATES ||--o{ ONBOARDING_CASES : "enters"
-    OFFERS ||--o| ONBOARDING_CASES : "starts"
-    EMPLOYEES ||--o| ONBOARDING_CASES : "created_for"
-    ONBOARDING_TEMPLATES ||--o{ ONBOARDING_CASES : "based_on"
-    ONBOARDING_STAGES ||--o{ ONBOARDING_CASES : "current_stage"
-    USERS ||--o{ ONBOARDING_CASES : "creates"
+    ONBOARDING_CASE ||--o{ ONBOARDING_TASK : "contains"
+    ONBOARDING_TASK ||--o{ TASK_ASSIGNMENT : "has"
+    ROLE ||--o{ TASK_ASSIGNMENT : "responsible_as"
+    USER o|--o{ TASK_ASSIGNMENT : "assigned_to"
+    ONBOARDING_CASE ||--o{ READINESS_CHECKLIST_ITEM : "has"
 
-    ONBOARDING_CASES ||--o{ ONBOARDING_TASKS : "contains"
-    TASK_TEMPLATES ||--o{ ONBOARDING_TASKS : "generates"
+    ONBOARDING_CASE ||--o{ ONBOARDING_CASE_MILESTONE : "tracks"
+    ONBOARDING_MILESTONE ||--o{ ONBOARDING_CASE_MILESTONE : "defines"
+    ONBOARDING_CASE ||--o{ CHECK_IN : "has"
+    ONBOARDING_CASE_MILESTONE ||--o{ CHECK_IN : "includes"
+    USER ||--o{ CHECK_IN : "reviews"
 
-    ONBOARDING_TASKS ||--o{ TASK_ASSIGNMENTS : "has"
-    USERS ||--o{ TASK_ASSIGNMENTS : "assigned_to"
-    ROLES ||--o{ TASK_ASSIGNMENTS : "assigned_role"
+    ONBOARDING_CASE ||--o{ FEEDBACK : "receives"
+    ONBOARDING_CASE_MILESTONE ||--o{ FEEDBACK : "relates_to"
+    USER ||--o{ FEEDBACK : "writes"
 
-    ONBOARDING_CASES ||--o{ READINESS_CHECKLIST_ITEMS : "has"
-    ONBOARDING_TASKS ||--o{ READINESS_CHECKLIST_ITEMS : "satisfies"
-
-    ONBOARDING_CASES ||--o{ ONBOARDING_MILESTONES : "tracks"
-
-    ONBOARDING_CASES ||--o{ CHECK_INS : "has"
-    ONBOARDING_MILESTONES ||--o{ CHECK_INS : "includes"
-    USERS ||--o{ CHECK_INS : "creates"
-
-    ONBOARDING_CASES ||--o{ FEEDBACK : "has"
-    ONBOARDING_MILESTONES ||--o{ FEEDBACK : "relates_to"
-    USERS ||--o{ FEEDBACK : "writes"
-
-    ONBOARDING_CASES ||--o{ ONBOARDING_BLOCKERS : "has"
-    ONBOARDING_TASKS ||--o{ ONBOARDING_BLOCKERS : "related_to"
-    USERS ||--o{ ONBOARDING_BLOCKERS : "reports"
-
-    USERS ||--o{ NOTIFICATIONS : "receives"
-    ONBOARDING_CASES ||--o{ NOTIFICATIONS : "triggers"
-    ONBOARDING_TASKS ||--o{ NOTIFICATIONS : "related_to"
+    ONBOARDING_CASE ||--o{ ONBOARDING_BLOCKER : "has"
+    ONBOARDING_TASK o|--o{ ONBOARDING_BLOCKER : "may_cause"
 ```
 ### 3. Core ERD Appllication Management
 ```mermaid
@@ -431,11 +416,17 @@ erDiagram
         varchar task_name
     }
 
-    TASK {
-        bigint task_id PK
+    ONBOARDING_TASK {
+        bigint onboarding_task_id PK
+        bigint onboarding_case_id FK
+        bigint task_template_id FK
         varchar task_name
+        varchar description
         varchar status
+        varchar priority
         datetime due_at
+        datetime created_at
+        datetime completed_at
     }
 
     FIELD_MAPPING {
@@ -470,9 +461,9 @@ erDiagram
         bigint onboarding_template_id PK, FK
     }
 
-    PROCESS_AUTOMATION_TASK {
+    PROCESS_AUTOMATION_ONBOARDING_TASK {
         bigint process_automation_id PK, FK
-        bigint task_id PK, FK
+        bigint onboarding_task_id PK, FK
     }
 
     CANDIDATE ||--o{ ONBOARDING_DRAFT : has
@@ -485,6 +476,7 @@ erDiagram
 
     ONBOARDING_DRAFT ||--o{ FIELD_MAPPING : has
 
+    TASK_TEMPLATE o|--o{ ONBOARDING_TASK : generates
 
     PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_OFFER : has
     OFFER ||--o{ PROCESS_AUTOMATION_OFFER : involved_in
@@ -495,6 +487,331 @@ erDiagram
     PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TEMPLATE : has
     ONBOARDING_TEMPLATE ||--o{ PROCESS_AUTOMATION_TEMPLATE : involved_in
 
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TASK : has
-    TASK ||--o{ PROCESS_AUTOMATION_TASK : involved_in
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : has
+    ONBOARDING_TASK ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : involved_in
+```
+
+### 6. Core ERD Onboarding Board 
+```mermaid
+erDiagram
+
+    CANDIDATE {
+        bigint candidate_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+        varchar email
+    }
+
+    OFFER {
+        bigint offer_id PK
+        bigint application_id FK
+        varchar offer_code
+        varchar status
+        date final_start_date
+    }
+
+    EMPLOYEE {
+        bigint employee_id PK
+        bigint candidate_id FK
+        bigint manager_user_id FK
+        varchar work_location
+    }
+
+    ONBOARDING_TEMPLATE {
+        bigint onboarding_template_id PK
+        varchar template_name
+        varchar status
+    }
+
+    ONBOARDING_STAGE {
+        bigint onboarding_stage_id PK
+        varchar stage_name
+        int stage_order
+        varchar description
+    }
+
+    ONBOARDING_CASE {
+        bigint onboarding_case_id PK
+        bigint offer_id FK
+        bigint employee_id FK
+        bigint onboarding_template_id FK
+        bigint onboarding_stage_id FK
+        varchar priority
+        datetime created_at
+        datetime completed_at
+    }
+
+    ONBOARDING_TASK {
+        bigint onboarding_task_id PK
+        bigint onboarding_case_id FK
+        varchar task_name
+        varchar status
+        varchar priority
+        datetime due_at
+    }
+
+    TASK_ASSIGNMENT {
+        bigint task_assignment_id PK
+        bigint onboarding_task_id FK
+        bigint assigned_user_id FK
+    }
+
+    READINESS_CHECKLIST_ITEM {
+        bigint readiness_item_id PK
+        bigint onboarding_case_id FK
+        varchar item_name
+        varchar status
+        datetime completed_at
+    }
+
+    ONBOARDING_BLOCKER {
+        bigint blocker_id PK
+        bigint onboarding_case_id FK
+        bigint onboarding_task_id FK
+        varchar description
+        varchar status
+        datetime reported_at
+        datetime resolved_at
+    }
+
+    USER {
+        bigint user_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+    }
+
+    ROLE {
+        bigint role_id PK
+        varchar role_name
+    }
+
+    CANDIDATE ||--o| EMPLOYEE : becomes
+
+    USER ||--o{ EMPLOYEE : manages
+
+    EMPLOYEE ||--o{ ONBOARDING_CASE : has
+
+    OFFER ||--o| ONBOARDING_CASE : starts
+
+    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_CASE : used_by
+
+    ONBOARDING_STAGE ||--o{ ONBOARDING_CASE : current_stage
+
+    ONBOARDING_CASE ||--o{ ONBOARDING_TASK : contains
+
+    ONBOARDING_TASK ||--o{ TASK_ASSIGNMENT : has
+
+    ROLE ||--o{ TASK_ASSIGNMENT : responsible_as
+
+    USER o|--o{ TASK_ASSIGNMENT : assigned_to
+
+    ONBOARDING_CASE ||--o{ READINESS_CHECKLIST_ITEM : has
+
+    ONBOARDING_CASE ||--o{ ONBOARDING_BLOCKER : has
+
+    ONBOARDING_TASK o|--o{ ONBOARDING_BLOCKER : may_cause
+```
+
+### 7. Core ERD Assigned Task by Role
+```mermaid
+erDiagram
+
+    POSITION {
+        bigint position_id PK
+        varchar position_name
+    }
+
+    EMPLOYEE {
+        bigint employee_id PK
+        bigint position_id FK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+    }
+
+    ONBOARDING_CASE {
+        bigint onboarding_case_id PK
+        bigint employee_id FK
+    }
+
+    TASK_TEMPLATE {
+        bigint task_template_id PK
+        varchar task_name
+    }
+
+    ONBOARDING_TASK {
+        bigint onboarding_task_id PK
+        bigint onboarding_case_id FK
+        bigint task_template_id FK
+        varchar task_name
+        varchar description
+        varchar status
+        varchar priority
+        datetime due_at
+        datetime created_at
+        datetime completed_at
+    }
+
+    USER {
+        bigint user_id PK
+        bigint team_id FK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+    }
+
+    ROLE {
+        bigint role_id PK
+        varchar role_name
+    }
+
+    USER_ROLE {
+        bigint user_id PK, FK
+        bigint role_id PK, FK
+    }
+
+    TASK_ASSIGNMENT {
+        bigint task_assignment_id PK
+        bigint onboarding_task_id FK
+        bigint assigned_user_id FK
+    }
+
+    POSITION ||--o{ EMPLOYEE : held_by
+
+    EMPLOYEE ||--o{ ONBOARDING_CASE : has
+
+    ONBOARDING_CASE ||--o{ ONBOARDING_TASK : contains
+
+    TASK_TEMPLATE o|--o{ ONBOARDING_TASK : generates
+
+    ONBOARDING_TASK ||--o{ TASK_ASSIGNMENT : has
+
+    USER ||--o{ TASK_ASSIGNMENT : assigned_to
+
+    USER ||--o{ USER_ROLE : has
+
+    ROLE ||--o{ USER_ROLE : assigned
+```
+
+### 8. Core ERD Tracking Progress 
+```mermaid
+erDiagram
+
+    DEPARTMENT {
+        bigint department_id PK
+        varchar department_name
+    }
+
+    POSITION {
+        bigint position_id PK
+        varchar position_name
+    }
+
+    USER {
+        bigint user_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+    }
+
+    EMPLOYEE {
+        bigint employee_id PK
+        bigint department_id FK
+        bigint position_id FK
+        bigint manager_user_id FK
+        date start_date
+    }
+
+    ONBOARDING_CASE {
+        bigint onboarding_case_id PK
+        bigint employee_id FK
+        datetime created_at
+        datetime completed_at
+    }
+
+    ONBOARDING_MILESTONE {
+        bigint milestone_id PK
+        varchar milestone_name
+        int target_day
+        int sequence_order
+    }
+
+    ONBOARDING_CASE_MILESTONE {
+        bigint case_milestone_id PK
+        bigint onboarding_case_id FK
+        bigint milestone_id FK
+        datetime scheduled_at
+        varchar status
+        datetime completed_at
+    }
+
+    CHECK_IN {
+        bigint check_in_id PK
+        bigint onboarding_case_id FK
+        bigint case_milestone_id FK
+        bigint reviewer_user_id FK
+        datetime scheduled_at
+        varchar status
+        datetime completed_at
+    }
+
+    FEEDBACK {
+        bigint feedback_id PK
+        bigint onboarding_case_id FK
+        bigint case_milestone_id FK
+        bigint author_user_id FK
+        varchar feedback_type
+        text content
+        datetime created_at
+    }
+
+    ONBOARDING_TASK {
+        bigint onboarding_task_id PK
+        bigint onboarding_case_id FK
+        varchar task_name
+        varchar status
+        datetime due_at
+    }
+
+    ONBOARDING_BLOCKER {
+        bigint blocker_id PK
+        bigint onboarding_case_id FK
+        bigint onboarding_task_id FK
+        varchar description
+        varchar status
+        datetime reported_at
+        datetime resolved_at
+    }
+
+    DEPARTMENT ||--o{ EMPLOYEE : contains
+
+    POSITION ||--o{ EMPLOYEE : held_by
+
+    USER ||--o{ EMPLOYEE : manages
+
+    EMPLOYEE ||--o{ ONBOARDING_CASE : has
+
+    ONBOARDING_CASE ||--o{ ONBOARDING_CASE_MILESTONE : tracks
+
+    ONBOARDING_MILESTONE ||--o{ ONBOARDING_CASE_MILESTONE : defines
+
+    ONBOARDING_CASE ||--o{ CHECK_IN : has
+
+    ONBOARDING_CASE_MILESTONE ||--o{ CHECK_IN : includes
+
+    USER ||--o{ CHECK_IN : reviews
+
+    ONBOARDING_CASE ||--o{ FEEDBACK : receives
+
+    ONBOARDING_CASE_MILESTONE ||--o{ FEEDBACK : relates_to
+
+    USER ||--o{ FEEDBACK : writes
+
+    ONBOARDING_CASE ||--o{ ONBOARDING_TASK : contains
+
+    ONBOARDING_CASE ||--o{ ONBOARDING_BLOCKER : has
+
+    ONBOARDING_TASK o|--o{ ONBOARDING_BLOCKER : may_cause
 ```
