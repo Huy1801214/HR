@@ -386,3 +386,115 @@ erDiagram
     APPLICATION ||--o{ OFFER : produces
     OFFER ||--o{ OFFER_RESPONSE : receives
 ```
+
+### 5. Core ERD Automation Hub
+```mermaid
+erDiagram
+
+    CANDIDATE {
+        bigint candidate_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+        varchar email
+    }
+
+    OFFER {
+        bigint offer_id PK
+        bigint application_id FK
+        varchar offer_code
+        varchar status
+        datetime response_deadline
+        date final_start_date
+    }
+
+    ONBOARDING_DRAFT {
+        bigint onboarding_draft_id PK
+        bigint candidate_id FK
+        bigint source_offer_id FK
+        bigint onboarding_template_id FK
+        varchar source_type
+        varchar status
+        datetime updated_at
+    }
+
+    ONBOARDING_TEMPLATE {
+        bigint onboarding_template_id PK
+        varchar template_name
+        varchar description
+        varchar status
+    }
+
+    TASK_TEMPLATE {
+        bigint task_template_id PK
+        bigint onboarding_template_id FK
+        varchar task_name
+    }
+
+    TASK {
+        bigint task_id PK
+        varchar task_name
+        varchar status
+        datetime due_at
+    }
+
+    FIELD_MAPPING {
+        bigint field_mapping_id PK
+        bigint onboarding_draft_id FK
+        varchar source_field_name
+        varchar target_field_name
+        decimal confidence_score
+        varchar status
+    }
+
+    PROCESS_AUTOMATION {
+        bigint process_automation_id PK
+        varchar name
+        varchar description
+        int display_order
+        boolean is_enabled
+    }
+
+    PROCESS_AUTOMATION_OFFER {
+        bigint process_automation_id PK, FK
+        bigint offer_id PK, FK
+    }
+
+    PROCESS_AUTOMATION_DRAFT {
+        bigint process_automation_id PK, FK
+        bigint onboarding_draft_id PK, FK
+    }
+
+    PROCESS_AUTOMATION_TEMPLATE {
+        bigint process_automation_id PK, FK
+        bigint onboarding_template_id PK, FK
+    }
+
+    PROCESS_AUTOMATION_TASK {
+        bigint process_automation_id PK, FK
+        bigint task_id PK, FK
+    }
+
+    CANDIDATE ||--o{ ONBOARDING_DRAFT : has
+
+    OFFER o|--o{ ONBOARDING_DRAFT : sources
+
+    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_DRAFT : used_by
+
+    ONBOARDING_TEMPLATE ||--o{ TASK_TEMPLATE : contains
+
+    ONBOARDING_DRAFT ||--o{ FIELD_MAPPING : has
+
+
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_OFFER : has
+    OFFER ||--o{ PROCESS_AUTOMATION_OFFER : involved_in
+
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_DRAFT : has
+    ONBOARDING_DRAFT ||--o{ PROCESS_AUTOMATION_DRAFT : involved_in
+
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TEMPLATE : has
+    ONBOARDING_TEMPLATE ||--o{ PROCESS_AUTOMATION_TEMPLATE : involved_in
+
+    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TASK : has
+    TASK ||--o{ PROCESS_AUTOMATION_TASK : involved_in
+```
