@@ -272,3 +272,51 @@ erDiagram
     ONBOARDING_CASES ||--o{ NOTIFICATIONS : "triggers"
     ONBOARDING_TASKS ||--o{ NOTIFICATIONS : "related_to"
 ```
+### 3. Core ERD Appllication Management
+```mermaid
+erDiagram
+
+    CANDIDATE {
+        bigint candidate_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+        varchar email
+    }
+
+    POSITION {
+        bigint position_id PK
+        varchar position_name
+    }
+
+    APPLICATION_STAGE {
+        bigint application_stage_id PK
+        varchar stage_name
+        int stage_order
+    }
+
+    USER {
+        bigint user_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+    }
+
+    APPLICATION {
+        bigint application_id PK
+        bigint candidate_id FK
+        bigint position_id FK
+        bigint application_stage_id FK
+        bigint owner_user_id FK
+        datetime applied_at
+        varchar status
+    }
+
+    CANDIDATE ||--o{ APPLICATION : submits
+
+    POSITION ||--o{ APPLICATION : receives
+
+    APPLICATION_STAGE ||--o{ APPLICATION : current_stage
+
+    USER ||--o{ APPLICATION : owns
+```
