@@ -320,3 +320,69 @@ erDiagram
 
     USER ||--o{ APPLICATION : owns
 ```
+
+### 4. Core ERD Offer Management
+```mermaid
+erDiagram
+
+    CANDIDATE {
+        bigint candidate_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+        varchar email
+    }
+
+    POSITION {
+        bigint position_id PK
+        varchar position_name
+    }
+
+    APPLICATION_STAGE {
+        bigint application_stage_id PK
+        varchar stage_name
+        int stage_order
+    }
+
+    USER {
+        bigint user_id PK
+        varchar first_name
+        varchar middle_name
+        varchar last_name
+    }
+
+    APPLICATION {
+        bigint application_id PK
+        bigint candidate_id FK
+        bigint position_id FK
+        bigint application_stage_id FK
+        bigint owner_user_id FK
+        datetime applied_at
+        varchar status
+        varchar evaluation
+    }
+
+    OFFER {
+        bigint offer_id PK
+        varchar offer_code
+        bigint application_id FK
+        varchar status
+        datetime response_deadline
+        date final_start_date
+    }
+
+    OFFER_RESPONSE {
+        bigint offer_response_id PK
+        bigint offer_id FK
+        varchar response_type
+        datetime responded_at
+    }
+
+    CANDIDATE ||--o{ APPLICATION : submits
+    POSITION ||--o{ APPLICATION : receives
+    APPLICATION_STAGE ||--o{ APPLICATION : contains
+    USER ||--o{ APPLICATION : owns
+
+    APPLICATION ||--o{ OFFER : produces
+    OFFER ||--o{ OFFER_RESPONSE : receives
+```
