@@ -157,182 +157,158 @@ erDiagram
         bigint position_id FK
         bigint application_stage_id FK
         bigint owner_user_id FK
-        datetime applied_at
         varchar status
     }
 
+    INTERVIEW {
+        bigint interview_id PK
+        bigint application_id FK
+        bigint interviewer_user_id FK
+        datetime scheduled_at
+        varchar status
+    }
+
+    APPLICATION_EVALUATION {
+        bigint evaluation_id PK
+        bigint application_id FK
+        bigint evaluator_user_id FK
+        varchar recommendation
+    }
+
+
     CANDIDATE ||--o{ APPLICATION : submits
 
-    POSITION ||--o{ APPLICATION : receives
+    POSITION ||--o{ APPLICATION : for_position
 
     APPLICATION_STAGE ||--o{ APPLICATION : current_stage
 
     USER ||--o{ APPLICATION : owns
+
+
+    APPLICATION ||--o{ INTERVIEW : has
+
+    USER ||--o{ INTERVIEW : conducts
+
+
+    APPLICATION ||--o{ APPLICATION_EVALUATION : receives
+
+    USER ||--o{ APPLICATION_EVALUATION : evaluates
 ```
 
 ### 4. Core ERD Offer Management
 ```mermaid
 erDiagram
 
-    CANDIDATE {
-        bigint candidate_id PK
-        varchar full_name
-    }
-
-    POSITION {
-        bigint position_id PK
-        varchar position_name
-    }
-
-    APPLICATION_STAGE {
-        bigint application_stage_id PK
-        varchar stage_name
-    }
-
-    USER {
-        bigint user_id PK
-        varchar full_name
-    }
-
     APPLICATION {
         bigint application_id PK
         bigint candidate_id FK
         bigint position_id FK
         varchar status
-        varchar evaluation
     }
 
     OFFER {
         bigint offer_id PK
-        varchar offer_code
         bigint application_id FK
+        bigint offer_template_id FK
+        bigint email_template_id FK
         varchar status
-        datetime response_deadline
-        date final_start_date
+        date response_deadline
     }
 
     OFFER_RESPONSE {
         bigint offer_response_id PK
         bigint offer_id FK
         varchar response_type
-        datetime responded_at
     }
 
-    CANDIDATE ||--o{ APPLICATION : submits
-    POSITION ||--o{ APPLICATION : receives
-    APPLICATION_STAGE ||--o{ APPLICATION : contains
-    USER ||--o{ APPLICATION : owns
+    OFFER_TEMPLATE {
+        bigint offer_template_id PK
+        varchar template_name
+    }
+
+    EMAIL_TEMPLATE {
+        bigint email_template_id PK
+        varchar template_name
+    }
 
     APPLICATION ||--o{ OFFER : produces
+
     OFFER ||--o{ OFFER_RESPONSE : receives
+
+    OFFER_TEMPLATE ||--o{ OFFER : used_by
+
+    EMAIL_TEMPLATE ||--o{ OFFER : used_by
 ```
 
 ### 5. Core ERD Intake Review
 ```mermaid
 erDiagram
 
-    CANDIDATE {
-        bigint candidate_id PK
-    }
-
     OFFER {
         bigint offer_id PK
     }
 
-    ONBOARDING_DRAFT {
-        bigint onboarding_draft_id PK
-        bigint candidate_id FK
-        bigint source_offer_id FK
+    USER {
+        bigint user_id PK
+    }
+
+    ONBOARDING_SUBMISSION {
+        bigint submission_id PK
+        bigint offer_id FK
         varchar status
+        datetime submitted_at
     }
 
-    ONBOARDING_TEMPLATE {
-        bigint onboarding_template_id PK
-        varchar template_name
-    }
-
-    TASK_TEMPLATE {
-        bigint task_template_id PK
-        varchar task_name
-    }
-
-    ONBOARDING_TASK {
-        bigint onboarding_task_id PK
-        varchar task_name
+    SUBMISSION_DOCUMENT {
+        bigint document_id PK
+        bigint submission_id FK
+        varchar document_type
+        varchar status
     }
 
     FIELD_MAPPING {
         bigint field_mapping_id PK
-        bigint onboarding_draft_id FK
-        varchar source_field_name
-        varchar target_field_name
+        bigint submission_id FK
+        varchar source_field
+        varchar target_field
         decimal confidence_score
     }
 
-    PROCESS_AUTOMATION {
-        bigint process_automation_id PK
-        varchar name
-        boolean is_enabled
+    INTAKE_REVIEW {
+        bigint intake_review_id PK
+        bigint submission_id FK
+        bigint reviewer_user_id FK
+        varchar status
     }
 
-    PROCESS_AUTOMATION_OFFER {
-        bigint process_automation_id FK
-        bigint offer_id FK
-    }
 
-    PROCESS_AUTOMATION_DRAFT {
-        bigint process_automation_id FK
-        bigint onboarding_draft_id FK
-    }
+    OFFER ||--o| ONBOARDING_SUBMISSION : receives
 
-    PROCESS_AUTOMATION_TEMPLATE {
-        bigint process_automation_id FK
-        bigint onboarding_template_id FK
-    }
+    ONBOARDING_SUBMISSION ||--o{ SUBMISSION_DOCUMENT : contains
 
-    PROCESS_AUTOMATION_ONBOARDING_TASK {
-        bigint process_automation_id FK
-        bigint onboarding_task_id FK
-    }
+    ONBOARDING_SUBMISSION ||--o{ FIELD_MAPPING : maps
 
-    CANDIDATE ||--o{ ONBOARDING_DRAFT : has
-    OFFER o|--o{ ONBOARDING_DRAFT : sources
-    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_DRAFT : used_by
-    ONBOARDING_TEMPLATE ||--o{ TASK_TEMPLATE : contains
-    ONBOARDING_DRAFT ||--o{ FIELD_MAPPING : has
-    TASK_TEMPLATE o|--o{ ONBOARDING_TASK : generates
+    ONBOARDING_SUBMISSION ||--o{ INTAKE_REVIEW : reviewed_by
 
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_OFFER : has
-    OFFER ||--o{ PROCESS_AUTOMATION_OFFER : involved_in
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_DRAFT : has
-    ONBOARDING_DRAFT ||--o{ PROCESS_AUTOMATION_DRAFT : involved_in
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TEMPLATE : has
-    ONBOARDING_TEMPLATE ||--o{ PROCESS_AUTOMATION_TEMPLATE : involved_in
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : has
-    ONBOARDING_TASK ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : involved_in
+    USER ||--o{ INTAKE_REVIEW : performs
 ```
 
 ### 6. Core ERD Onboarding Board 
 ```mermaid
 erDiagram
 
-    CANDIDATE {
-        bigint candidate_id PK
-    }
-
     OFFER {
         bigint offer_id PK
         date final_start_date
     }
 
-    EMPLOYEE {
-        bigint employee_id PK
-        bigint candidate_id FK
+    USER {
+        bigint user_id PK
     }
 
-    ONBOARDING_TEMPLATE {
-        bigint onboarding_template_id PK
-        varchar template_name
+    EMPLOYEE {
+        bigint employee_id PK
+        bigint manager_user_id FK
     }
 
     ONBOARDING_STAGE {
@@ -345,26 +321,17 @@ erDiagram
         bigint offer_id FK
         bigint employee_id FK
         bigint onboarding_stage_id FK
-        varchar priority
     }
 
     ONBOARDING_TASK {
         bigint onboarding_task_id PK
         bigint onboarding_case_id FK
-        varchar task_name
         varchar status
-    }
-
-    TASK_ASSIGNMENT {
-        bigint task_assignment_id PK
-        bigint onboarding_task_id FK
-        bigint assigned_user_id FK
     }
 
     READINESS_CHECKLIST_ITEM {
         bigint readiness_item_id PK
         bigint onboarding_case_id FK
-        varchar item_name
         varchar status
     }
 
@@ -374,41 +341,28 @@ erDiagram
         varchar status
     }
 
-    USER {
-        bigint user_id PK
-    }
 
-    ROLE {
-        bigint role_id PK
-        varchar role_name
-    }
-
-    CANDIDATE ||--o| EMPLOYEE : becomes
     USER ||--o{ EMPLOYEE : manages
+
     EMPLOYEE ||--o{ ONBOARDING_CASE : has
+
     OFFER ||--o| ONBOARDING_CASE : starts
-    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_CASE : used_by
+
     ONBOARDING_STAGE ||--o{ ONBOARDING_CASE : current_stage
+
     ONBOARDING_CASE ||--o{ ONBOARDING_TASK : contains
-    ONBOARDING_TASK ||--o{ TASK_ASSIGNMENT : has
-    ROLE ||--o{ TASK_ASSIGNMENT : responsible_as
-    USER o|--o{ TASK_ASSIGNMENT : assigned_to
-    ONBOARDING_CASE ||--o{ READINESS_CHECKLIST_ITEM : has
+
+    ONBOARDING_CASE ||--o{ READINESS_CHECKLIST_ITEM : checks
+
     ONBOARDING_CASE ||--o{ ONBOARDING_BLOCKER : has
-    ONBOARDING_TASK o|--o{ ONBOARDING_BLOCKER : may_cause
 ```
 
 ### 7. Core ERD Assigned Task by Role
 ```mermaid
 erDiagram
 
-    POSITION {
-        bigint position_id PK
-    }
-
     EMPLOYEE {
         bigint employee_id PK
-        bigint position_id FK
     }
 
     ONBOARDING_CASE {
@@ -427,6 +381,11 @@ erDiagram
         bigint task_template_id FK
         varchar task_name
         varchar status
+    }
+
+    TEAM {
+        bigint team_id PK
+        varchar team_name
     }
 
     USER {
@@ -450,27 +409,41 @@ erDiagram
         bigint assigned_user_id FK
     }
 
-    POSITION ||--o{ EMPLOYEE : held_by
+
     EMPLOYEE ||--o{ ONBOARDING_CASE : has
+
     ONBOARDING_CASE ||--o{ ONBOARDING_TASK : contains
+
     TASK_TEMPLATE o|--o{ ONBOARDING_TASK : generates
+
     ONBOARDING_TASK ||--o{ TASK_ASSIGNMENT : has
+
     USER ||--o{ TASK_ASSIGNMENT : assigned_to
+
+    TEAM ||--o{ USER : contains
+
     USER ||--o{ USER_ROLE : has
+
     ROLE ||--o{ USER_ROLE : assigned
 ```
 
 ### 8. Core ERD Tracking Progress 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "fontSize": "18px"
+  },
+  "er": {
+    "diagramPadding": 40,
+    "entityPadding": 20,
+    "minEntityWidth": 220,
+    "minEntityHeight": 80
+  }
+}}%%
+
 erDiagram
-
-    DEPARTMENT {
-        bigint department_id PK
-    }
-
-    POSITION {
-        bigint position_id PK
-    }
+    direction LR
 
     USER {
         bigint user_id PK
@@ -478,71 +451,54 @@ erDiagram
 
     EMPLOYEE {
         bigint employee_id PK
-        bigint department_id FK
-        bigint position_id FK
+        bigint manager_user_id FK
     }
 
     ONBOARDING_CASE {
         bigint onboarding_case_id PK
         bigint employee_id FK
+    }
+
+    PROBATION {
+        bigint probation_id PK
+        bigint onboarding_case_id FK
+        date start_date
+        date end_date
         varchar status
     }
 
-    ONBOARDING_MILESTONE {
-        bigint milestone_id PK
-        varchar milestone_name
-        int target_day
-    }
-
-    ONBOARDING_CASE_MILESTONE {
-        bigint case_milestone_id PK
-        bigint onboarding_case_id FK
-        bigint milestone_id FK
+    SELF_REVIEW {
+        bigint self_review_id PK
+        bigint probation_id FK
         varchar status
     }
 
-    CHECK_IN {
-        bigint check_in_id PK
-        bigint onboarding_case_id FK
-        bigint case_milestone_id FK
+    EVALUATION {
+        bigint evaluation_id PK
+        bigint probation_id FK
+        datetime scheduled_at
+        varchar status
+        varchar result
+    }
+
+    EVALUATION_REVIEWER {
+        bigint evaluation_id FK
         bigint reviewer_user_id FK
-        varchar status
+        varchar recommendation
     }
 
-    FEEDBACK {
-        bigint feedback_id PK
-        bigint onboarding_case_id FK
-        bigint case_milestone_id FK
-        bigint author_user_id FK
-        varchar feedback_type
-    }
 
-    ONBOARDING_TASK {
-        bigint onboarding_task_id PK
-        bigint onboarding_case_id FK
-        varchar status
-    }
-
-    ONBOARDING_BLOCKER {
-        bigint blocker_id PK
-        bigint onboarding_case_id FK
-        bigint onboarding_task_id FK
-        varchar status
-    }
-
-    DEPARTMENT ||--o{ EMPLOYEE : contains
-    POSITION ||--o{ EMPLOYEE : held_by
     USER ||--o{ EMPLOYEE : manages
+
     EMPLOYEE ||--o{ ONBOARDING_CASE : has
-    ONBOARDING_CASE ||--o{ ONBOARDING_CASE_MILESTONE : tracks
-    ONBOARDING_MILESTONE ||--o{ ONBOARDING_CASE_MILESTONE : defines
-    ONBOARDING_CASE ||--o{ CHECK_IN : has
-    ONBOARDING_CASE_MILESTONE ||--o{ CHECK_IN : includes
-    USER ||--o{ CHECK_IN : reviews
-    ONBOARDING_CASE ||--o{ FEEDBACK : receives
-    ONBOARDING_CASE_MILESTONE ||--o{ FEEDBACK : relates_to
-    USER ||--o{ FEEDBACK : writes
-    ONBOARDING_CASE ||--o{ ONBOARDING_TASK : contains
-    ONBOARDING_CASE ||--o{ ONBOARDING_BLOCKER : has
-    ONBOARDING_TASK o|--o{ ONBOARDING_BLOCKER : may_cause
+
+    ONBOARDING_CASE ||--o| PROBATION : enters
+
+    PROBATION ||--o{ SELF_REVIEW : has
+
+    PROBATION ||--o{ EVALUATION : has
+
+    EVALUATION ||--o{ EVALUATION_REVIEWER : reviewers
+
+    USER ||--o{ EVALUATION_REVIEWER : reviews
 ```
