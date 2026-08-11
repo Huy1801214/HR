@@ -6,7 +6,7 @@
 https://www.figma.com/design/zdmEvaHXfHBNyfO5F5zDxh/HR-Platform?node-id=0-1&p=f&t=0EqTrWfMMwvZHJOq-0
 
 # BPMN
-![alt text](Onboarding.png)
+![alt text](OnboardingHL.png)
 
 ### 2. Entity Relationship Diagram (ERD)
 
@@ -16,7 +16,7 @@ erDiagram
     %% ------------------------------------------
     %% 1. CORE SYSTEM & AUTHENTICATION
     %% ------------------------------------------
-    DEPARTMENT
+    TEAM
     POSITION
     USER
     ROLE
@@ -28,21 +28,21 @@ erDiagram
     CANDIDATE
     APPLICATION_STAGE
     APPLICATION
+    INTERVIEW
+    APPLICATION_EVALUATION
     OFFER
     OFFER_RESPONSE
+    OFFER_TEMPLATE
+    EMAIL_TEMPLATE
 
     %% ------------------------------------------
-    %% 3. AUTOMATION HUB & TEMPLATES
+    %% 3. INTAKE REVIEW & TEMPLATES
     %% ------------------------------------------
-    ONBOARDING_TEMPLATE
-    TASK_TEMPLATE
-    ONBOARDING_DRAFT
+    ONBOARDING_SUBMISSION
+    SUBMISSION_DOCUMENT
     FIELD_MAPPING
-    PROCESS_AUTOMATION
-    PROCESS_AUTOMATION_OFFER
-    PROCESS_AUTOMATION_DRAFT
-    PROCESS_AUTOMATION_TEMPLATE
-    PROCESS_AUTOMATION_ONBOARDING_TASK
+    INTAKE_REVIEW
+    TASK_TEMPLATE
 
     %% ------------------------------------------
     %% 4. EMPLOYEES & ONBOARDING EXECUTION
@@ -59,71 +59,58 @@ erDiagram
     READINESS_CHECKLIST_ITEM
 
     %% ------------------------------------------
-    %% 6. TRACKING & FEEDBACK
+    %% 6. PROBATION & TRACKING
     %% ------------------------------------------
-    ONBOARDING_MILESTONE
-    ONBOARDING_CASE_MILESTONE
-    CHECK_IN
-    FEEDBACK
+    PROBATION
+    SELF_REVIEW
+    EVALUATION
+    EVALUATION_REVIEWER
     ONBOARDING_BLOCKER
 
     %% ==========================================
     %% RELATIONSHIPS
     %% ==========================================
-    DEPARTMENT ||--o{ EMPLOYEE : "contains"
-    POSITION ||--o{ EMPLOYEE : "held_by"
-    USER ||--o{ EMPLOYEE : "manages"
+    TEAM ||--o{ USER : "contains"
     USER ||--o{ USER_ROLE : "has"
     ROLE ||--o{ USER_ROLE : "assigned"
+    POSITION ||--o{ APPLICATION : "for_position"
+    USER ||--o{ EMPLOYEE : "manages"
 
     CANDIDATE ||--o{ APPLICATION : "submits"
-    POSITION ||--o{ APPLICATION : "receives"
     APPLICATION_STAGE ||--o{ APPLICATION : "current_stage"
     USER ||--o{ APPLICATION : "owns"
+    APPLICATION ||--o{ INTERVIEW : "has"
+    USER ||--o{ INTERVIEW : "conducts"
+    APPLICATION ||--o{ APPLICATION_EVALUATION : "receives"
+    USER ||--o{ APPLICATION_EVALUATION : "evaluates"
 
     APPLICATION ||--o{ OFFER : "produces"
     OFFER ||--o{ OFFER_RESPONSE : "receives"
+    OFFER_TEMPLATE ||--o{ OFFER : "used_by"
+    EMAIL_TEMPLATE ||--o{ OFFER : "used_by"
 
-    CANDIDATE ||--o{ ONBOARDING_DRAFT : "has"
-    OFFER o|--o{ ONBOARDING_DRAFT : "sources"
-    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_DRAFT : "used_by"
-    ONBOARDING_TEMPLATE ||--o{ TASK_TEMPLATE : "contains"
-    ONBOARDING_DRAFT ||--o{ FIELD_MAPPING : "has"
+    OFFER ||--o| ONBOARDING_SUBMISSION : "receives"
+    ONBOARDING_SUBMISSION ||--o{ SUBMISSION_DOCUMENT : "contains"
+    ONBOARDING_SUBMISSION ||--o{ FIELD_MAPPING : "maps"
+    ONBOARDING_SUBMISSION ||--o{ INTAKE_REVIEW : "reviewed_by"
+    USER ||--o{ INTAKE_REVIEW : "performs"
     TASK_TEMPLATE o|--o{ ONBOARDING_TASK : "generates"
 
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_OFFER : "has"
-    OFFER ||--o{ PROCESS_AUTOMATION_OFFER : "involved_in"
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_DRAFT : "has"
-    ONBOARDING_DRAFT ||--o{ PROCESS_AUTOMATION_DRAFT : "involved_in"
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_TEMPLATE : "has"
-    ONBOARDING_TEMPLATE ||--o{ PROCESS_AUTOMATION_TEMPLATE : "involved_in"
-    PROCESS_AUTOMATION ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : "has"
-    ONBOARDING_TASK ||--o{ PROCESS_AUTOMATION_ONBOARDING_TASK : "involved_in"
-
-    CANDIDATE ||--o| EMPLOYEE : "becomes"
     EMPLOYEE ||--o{ ONBOARDING_CASE : "has"
     OFFER ||--o| ONBOARDING_CASE : "starts"
-    ONBOARDING_TEMPLATE ||--o{ ONBOARDING_CASE : "used_by"
     ONBOARDING_STAGE ||--o{ ONBOARDING_CASE : "current_stage"
 
     ONBOARDING_CASE ||--o{ ONBOARDING_TASK : "contains"
     ONBOARDING_TASK ||--o{ TASK_ASSIGNMENT : "has"
-    ROLE ||--o{ TASK_ASSIGNMENT : "responsible_as"
-    USER o|--o{ TASK_ASSIGNMENT : "assigned_to"
-    ONBOARDING_CASE ||--o{ READINESS_CHECKLIST_ITEM : "has"
+    USER ||--o{ TASK_ASSIGNMENT : "assigned_to"
+    ONBOARDING_CASE ||--o{ READINESS_CHECKLIST_ITEM : "checks"
 
-    ONBOARDING_CASE ||--o{ ONBOARDING_CASE_MILESTONE : "tracks"
-    ONBOARDING_MILESTONE ||--o{ ONBOARDING_CASE_MILESTONE : "defines"
-    ONBOARDING_CASE ||--o{ CHECK_IN : "has"
-    ONBOARDING_CASE_MILESTONE ||--o{ CHECK_IN : "includes"
-    USER ||--o{ CHECK_IN : "reviews"
-
-    ONBOARDING_CASE ||--o{ FEEDBACK : "receives"
-    ONBOARDING_CASE_MILESTONE ||--o{ FEEDBACK : "relates_to"
-    USER ||--o{ FEEDBACK : "writes"
-
+    ONBOARDING_CASE ||--o| PROBATION : "enters"
+    PROBATION ||--o{ SELF_REVIEW : "has"
+    PROBATION ||--o{ EVALUATION : "has"
+    EVALUATION ||--o{ EVALUATION_REVIEWER : "reviewers"
+    USER ||--o{ EVALUATION_REVIEWER : "reviews"
     ONBOARDING_CASE ||--o{ ONBOARDING_BLOCKER : "has"
-    ONBOARDING_TASK o|--o{ ONBOARDING_BLOCKER : "may_cause"
 ```
 ### 3. Core ERD Appllication Management
 ```mermaid
@@ -429,19 +416,6 @@ erDiagram
 
 ### 8. Core ERD Tracking Progress 
 ```mermaid
-%%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "fontSize": "18px"
-  },
-  "er": {
-    "diagramPadding": 40,
-    "entityPadding": 20,
-    "minEntityWidth": 220,
-    "minEntityHeight": 80
-  }
-}}%%
-
 erDiagram
     direction LR
 
